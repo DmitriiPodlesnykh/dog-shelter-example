@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< Updated upstream
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="ES6" />
+=======
+  <component name="ProjectRootManager">
+    <output url="file://$PROJECT_DIR$/out" />
+>>>>>>> Stashed changes
   </component>
 </project>
