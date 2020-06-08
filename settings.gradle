@@ -1,0 +1,3 @@
+rootProject.name = 'dog-shelter-example'
+include 'dog-shelter-example-main'
+
