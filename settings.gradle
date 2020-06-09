@@ -1,3 +1,1 @@
-rootProject.name = 'dog-shelter-example'
-include 'dog-shelter-example-main'
-
+rootProject.name = 'dog-shelter-example'include 'dog-shelter-example-main'
