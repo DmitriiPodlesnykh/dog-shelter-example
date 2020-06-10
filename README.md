@@ -8,6 +8,13 @@ Aleksandra
 Ianina
 
 
-Master
-Branch
-123456
+## 09.06.2020
+### Что было:
+Отвели ветки от master branch. Попробовали merge.
+
+### Что почитать:
+1. https://www.jetbrains.com/help/idea/apply-changes-from-one-branch-to-another.html Только про merge
+1. https://www.jetbrains.com/help/idea/resolving-conflicts.html Resolve conflicts
+
+### Рекомендуется выполнить:
+1. Создать именную ветку от master branch, если такой еще нет. Сделать merge master branch в свою локальную ветку, если ветка была. 
