@@ -4,8 +4,7 @@
 Точка входа 
 <code>dog-shelter-example-main/src/main/java/com/example/shelter/Main.java</code>
 
-Irina
-Khvichiya
+Irina Khvichiya
 
 ## 09.06.2020
 ### Что было:
