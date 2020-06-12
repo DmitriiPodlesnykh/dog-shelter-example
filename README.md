@@ -4,6 +4,8 @@
 Точка входа 
 <code>dog-shelter-example-main/src/main/java/com/example/shelter/Main.java</code>
 
+## 12.06.2020
+### irinaIgnore branch has been created for adhoc tests
 
 ## 09.06.2020
 ### Что было:
@@ -15,3 +17,4 @@
 
 ### Рекомендуется выполнить:
 1. Создать именную ветку от master branch, если такой еще нет. Сделать merge master branch в свою локальную ветку, если ветка была. 
+
