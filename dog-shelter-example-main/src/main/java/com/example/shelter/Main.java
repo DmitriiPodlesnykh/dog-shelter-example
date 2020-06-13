@@ -27,6 +27,8 @@ public class Main {
         List<Dog> dogs = new ArrayList<>();
 
         String string = null;
+        String stringAD = null;
+        LocalDateTime localDateTime = LocalDateTime.now();
 
         while (!"exit".equals(string)) {
             System.out.println("dog new name:");
@@ -34,21 +36,18 @@ public class Main {
             Dog newDog = new Dog();
             newDog.name = string;
 
-            System.out.println("dog admission time stamp (in format 'yyyy-MM-ddThh:mm:ss'):");
-            LocalDateTime localDateTime;
-            string = "";
-            string = in.nextLine();
-
-            if (string == "") {
-                localDateTime = LocalDateTime.now();
-            } else {
-               localDateTime = LocalDateTime.parse(string);
+            if(!"exit".equals(string)) {
+                System.out.println("dog admission time stamp (in format 'yyyy-MM-ddThh:mm' - e.g. 2020-06-13T21:41):");
+                stringAD = in.nextLine();
+                if (!stringAD.equals("")) {
+                    localDateTime = LocalDateTime.parse(stringAD);
+                }
             }
             newDog.admissionDate = localDateTime;
-            dogs.add(newDog);
-        }
+        dogs.add(newDog);
+    }
             System.out.println(dogs);
-        }
+}
 
         private static void caseWithArray ()
         {
