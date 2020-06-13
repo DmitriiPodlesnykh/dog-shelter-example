@@ -1,72 +1,74 @@
 package com.example.shelter;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.example.shelter.animal.Dog;
 import java.util.List;
 
-public class Main
-{
-    public static void main(String... args)
-    {
+public class Main {
+    public static void main(String... args) {
         System.out.println("Выберете сохранять к коллекцию(1) или в массив(2)?");
         Scanner in = new Scanner(System.in);
         int selectedCase = in.nextInt();
-        if(selectedCase == 1)
-        {
+        if (selectedCase == 1) {
             caseWithArrayList();
-        } else if (selectedCase == 2)
-        {
+        } else if (selectedCase == 2) {
             caseWithArray();
-        } else
-        {
+        } else {
             System.out.println("некорректный ввод. Пока");
         }
     }
 
-    private static void caseWithArrayList()
-    {
+    private static void caseWithArrayList() {
         Scanner in = new Scanner(System.in);
 
         List<Dog> dogs = new ArrayList<>();
 
         String string = null;
 
-        while (!"exit".equals(string))
-        {
+        while (!"exit".equals(string)) {
             System.out.println("dog new name:");
             string = in.nextLine();
             Dog newDog = new Dog();
             newDog.name = string;
 
+            System.out.println("dog admission time stamp (in format 'yyyy-MM-ddThh:mm:ss'):");
+            LocalDateTime localDateTime;
+            string = "";
+            string = in.nextLine();
+
+            if (string == "") {
+                localDateTime = LocalDateTime.now();
+            } else {
+               localDateTime = LocalDateTime.parse(string);
+            }
+            newDog.admissionDate = localDateTime;
             dogs.add(newDog);
         }
-
-        System.out.println(dogs);
-    }
-
-    private static void caseWithArray()
-    {
-        Scanner in = new Scanner(System.in);
-
-        Dog[] dogs = new Dog[5];
-        int index = 0;
-        String string = null;
-        while (!"exit".equals(string))
-        {
-            System.out.println("dog new name:");
-            string = in.nextLine();
-            Dog newDog = new Dog();
-            newDog.name = string;
-            dogs[index] = newDog;
-            index++;
+            System.out.println(dogs);
         }
 
-        //вывод результата на экран
-        for (final Dog dog : dogs)
+        private static void caseWithArray ()
         {
-            System.out.println(dog);
+            Scanner in = new Scanner(System.in);
+
+            Dog[] dogs = new Dog[5];
+            int index = 0;
+            String string = null;
+            while (!"exit".equals(string)) {
+                System.out.println("dog new name:");
+                string = in.nextLine();
+                Dog newDog = new Dog();
+                newDog.name = string;
+                dogs[index] = newDog;
+                index++;
+            }
+
+            //вывод результата на экран
+            for (final Dog dog : dogs) {
+                System.out.println(dog);
+            }
         }
     }
-}
