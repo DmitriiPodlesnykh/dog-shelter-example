@@ -28,8 +28,9 @@ public class Main {
         List<Dog> dogs = new ArrayList<>();
         String string = null;
         String stringAD = null;
+        String status = null;
 
-        while ((!"exit".equals(string)) || (!"exit".equals(stringAD))) {
+        while (!"exit".equals(string)) {
             System.out.println("dog new name:");
             LocalDateTime localDateTime = LocalDateTime.now();
             string = in.nextLine();
@@ -45,11 +46,18 @@ public class Main {
                     }
                 }
                 newDog.admissionDate = localDateTime;
+            }
+            if (!"exit".equals(string)) {
+                System.out.println("dog status (admitted/not admitted/discharged:");
+                status = in.nextLine();
+                if (!status.equals("")) {
+                    newDog.status = status;
+                }
+            }
                 dogs.add(newDog);
             }
             System.out.println(dogs);
         }
-    }
 
     private static void caseWithArray() {
         Scanner in = new Scanner(System.in);

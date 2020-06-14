@@ -6,6 +6,13 @@
 
 Irina Khvichiya
 
+
+## 14.06.2020 -
+1. TO ASK Dima (about Zone usage in the class Dog)
+ZoneOffset offset = ZoneOffset.of("+02:00");
+    OffsetDateTime offSetByTwo = OffsetDateTime
+            .of(admissionDate, offset);
+
 ## 09.06.2020 - 11.06.2020
 ### Что было:
 Отвели ветки от master branch. Попробовали merge.
