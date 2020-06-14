@@ -42,34 +42,48 @@ public class Main {
                 stringAD = in.nextLine();
                 if (!"exit".equals(stringAD)) {
                     if (!stringAD.equals("")) {
-                        localDateTime = LocalDateTime.parse(stringAD);
-                    }
-                }
-                newDog.admissionDate = localDateTime;
+                        localDateTime = LocalDateTime.parse(stringAD); }
+                }newDog.admissionDate = localDateTime;
             }
             if (!"exit".equals(string)) {
                 System.out.println("dog status (admitted/not admitted/discharged:");
                 status = in.nextLine();
                 if (!status.equals("")) {
-                    newDog.status = status;
-                }
-            }
-                dogs.add(newDog);
+                    newDog.status = status; }
+            }dogs.add(newDog);
             }
             System.out.println(dogs);
         }
 
     private static void caseWithArray() {
         Scanner in = new Scanner(System.in);
-
         Dog[] dogs = new Dog[5];
         int index = 0;
         String string = null;
+        String stringAD = null;
+        String status = null;
+
         while (!"exit".equals(string)) {
             System.out.println("dog new name:");
+            LocalDateTime localDateTime = LocalDateTime.now();
             string = in.nextLine();
             Dog newDog = new Dog();
             newDog.name = string;
+
+            if (!"exit".equals(string)) {
+                System.out.println("dog admission time stamp (in format 'yyyy-MM-ddThh:mm' - e.g. 2020-06-13T21:41):");
+                stringAD = in.nextLine();
+                if (!"exit".equals(stringAD)) {
+                    if (!stringAD.equals("")) {
+                        localDateTime = LocalDateTime.parse(stringAD); }
+                }newDog.admissionDate = localDateTime;
+            }
+            if (!"exit".equals(string)) {
+                System.out.println("dog status (admitted/not admitted/discharged:");
+                status = in.nextLine();
+                if (!status.equals("")) {
+                    newDog.status = status; }
+            }
             dogs[index] = newDog;
             index++;
         }
