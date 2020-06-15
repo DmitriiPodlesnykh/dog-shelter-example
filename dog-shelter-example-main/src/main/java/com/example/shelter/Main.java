@@ -3,7 +3,10 @@ package com.example.shelter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import com.example.shelter.animal.CurrentDogStatus;
 import com.example.shelter.animal.Dog;
+import com.example.shelter.animal.DogStatus;
+
 import java.util.List;
 
 public class Main
@@ -33,12 +36,14 @@ public class Main
 
         String string = null;
 
+
         while (!"exit".equals(string))
         {
             System.out.println("dog new name:");
             string = in.nextLine();
             Dog newDog = new Dog();
             newDog.name = string;
+            newDog.dogStatus = CurrentDogStatus.getStatus();
 
             dogs.add(newDog);
         }
@@ -59,6 +64,7 @@ public class Main
             string = in.nextLine();
             Dog newDog = new Dog();
             newDog.name = string;
+            newDog.dogStatus = CurrentDogStatus.getStatus();
             dogs[index] = newDog;
             index++;
         }
