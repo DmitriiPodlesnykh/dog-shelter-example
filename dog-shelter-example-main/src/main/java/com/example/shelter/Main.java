@@ -1,5 +1,6 @@
 package com.example.shelter;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -32,13 +33,35 @@ public class Main
         List<Dog> dogs = new ArrayList<>();
 
         String string = null;
+        String string2;
+        String string3;
 
         while (!"exit".equals(string))
         {
             System.out.println("dog new name:");
             string = in.nextLine();
+
             Dog newDog = new Dog();
             newDog.name = string;
+
+            System.out.println("dog arrival date and time in format \"2015-02-20T06:30:00\":");
+            string2 = in.nextLine();
+
+
+            if(!string2.equals("")){
+                newDog.localDateTime = LocalDateTime.parse(string2);
+            } else {
+                newDog.localDateTime = LocalDateTime.now();
+            }
+
+            System.out.println("dog status (Accepted/NotAccepted/Discharged)");
+            string3 = in.nextLine();
+
+            if(!string3.equals("")){
+                newDog.dogStatus = string3;
+            }else {
+                newDog.dogStatus = Status.Accepted.toString();
+            }
 
             dogs.add(newDog);
         }
@@ -53,15 +76,40 @@ public class Main
         Dog[] dogs = new Dog[5];
         int index = 0;
         String string = null;
+        String string2;
+        String string3;
+
         while (!"exit".equals(string))
         {
             System.out.println("dog new name:");
             string = in.nextLine();
+
             Dog newDog = new Dog();
             newDog.name = string;
+
+            System.out.println("dog arrival date and time in format \"2015-02-20T06:30:00\":");
+            string2 = in.nextLine();
+
+
+            if(!string2.equals("")){
+                newDog.localDateTime = LocalDateTime.parse(string2);
+            } else {
+                newDog.localDateTime = LocalDateTime.now();
+            }
+
+            System.out.println("dog status (Accepted/NotAccepted/Discharged)");
+            string3 = in.nextLine();
+
+            if(!string3.equals("")){
+                newDog.dogStatus = string3;
+            }else {
+                newDog.dogStatus = Status.Accepted.toString();
+            }
+
             dogs[index] = newDog;
             index++;
         }
+
 
         //вывод результата на экран
         for (final Dog dog : dogs)
