@@ -6,6 +6,7 @@ import java.util.Scanner;
 import com.example.shelter.animal.CurrentDogStatus;
 import com.example.shelter.animal.Dog;
 import com.example.shelter.animal.DogStatus;
+import com.example.shelter.animal.DogTime;
 
 import java.util.List;
 
@@ -44,6 +45,7 @@ public class Main
             Dog newDog = new Dog();
             newDog.name = string;
             newDog.dogStatus = CurrentDogStatus.getStatus();
+            newDog.visitTime = DogTime.dogAdmissionTime();
 
             dogs.add(newDog);
         }

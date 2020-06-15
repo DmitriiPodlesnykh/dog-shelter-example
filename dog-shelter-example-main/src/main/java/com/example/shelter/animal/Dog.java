@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 public class Dog
 {
     public String name = "Sharic";
-    //public LocalDateTime visitTime = LocalDateTime.now();
+    public LocalDateTime visitTime = LocalDateTime.now();
     public DogStatus dogStatus = DogStatus.ADMITTED;
 
 
@@ -16,6 +16,7 @@ public class Dog
     public String toString() {
         return "Dog{" +
                 "name='" + name + '\'' +
+                ", visitTime=" + visitTime +
                 ", dogStatus=" + dogStatus +
                 '}';
     }
