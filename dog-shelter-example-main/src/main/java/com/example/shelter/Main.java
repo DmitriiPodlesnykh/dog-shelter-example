@@ -1,9 +1,12 @@
 package com.example.shelter;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.example.shelter.animal.Dog;
+import com.example.shelter.animal.Status;
+
 import java.util.List;
 
 public class Main
@@ -61,6 +64,31 @@ public class Main
             newDog.name = string;
             dogs[index] = newDog;
             index++;
+
+            System.out.println("dog arrival date (e.g. 2012-12-12T10:00:30)");
+            string = in.nextLine();
+            if (string.length()>0) {
+                newDog.arrivalDateTime = LocalDateTime.parse(string);
+            }
+
+            System.out.println("dog status (A/N/D)");
+            string = in.nextLine();
+            if (string.length()==1) {
+                if ("A".equals(string)){
+                    newDog.status = Status.ACCEPTED;
+                }
+                else if ("N".equals(string)){
+                    newDog.status = Status.NOTACCEPTED;
+                }
+                else if ("D".equals(string)){
+                    newDog.status = Status.DISCHARGED;
+                }
+                else
+                    System.out.println("Entry is wrong. Default used.");
+            }
+
+            System.out.println("Type 'exit' to complete or any to contiue");
+            string = in.nextLine();
         }
 
         //вывод результата на экран
