@@ -1,5 +1,8 @@
 package com.example.shelter;
 
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalUnit;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -45,7 +48,10 @@ public class Main
             Dog newDog = new Dog();
             newDog.name = string;
             newDog.dogStatus = CurrentDogStatus.getStatus();
-            newDog.visitTime = DogTime.dogAdmissionTime();
+            try {newDog.visitTime = DogTime.dogAdmissionTime();} catch (Exception e){
+                System.out.println("wrong date format");
+                newDog.visitTime = LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES);
+            }
 
             dogs.add(newDog);
         }
@@ -67,6 +73,10 @@ public class Main
             Dog newDog = new Dog();
             newDog.name = string;
             newDog.dogStatus = CurrentDogStatus.getStatus();
+            try {newDog.visitTime = DogTime.dogAdmissionTime();} catch (Exception e){
+                System.out.println("wrong date format");
+                newDog.visitTime = LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES);
+            }
             dogs[index] = newDog;
             index++;
         }
