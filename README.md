@@ -27,5 +27,3 @@
 Статус может быть как строкой, так и структурой данных Enum. Подробнее об Enum:
  ( https://www.youtube.com/watch?v=GOzNp1YAm5w )
  ( https://www.baeldung.com/a-guide-to-java-enums)
-
-NL
