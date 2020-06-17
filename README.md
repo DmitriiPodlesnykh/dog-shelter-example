@@ -4,6 +4,9 @@
 Точка входа 
 <code>dog-shelter-example-main/src/main/java/com/example/shelter/Main.java</code>
 
+## 16.06.2020
+### Что почитать:
+https://www.youtube.com/watch?v=M58eiYbM6AE - Что такое ООП
 
 ## 09.06.2020 - 11.06.2020
 ### Что было:
