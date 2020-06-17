@@ -6,7 +6,10 @@
 
 ## 16.06.2020
 ### Что почитать:
-https://www.youtube.com/watch?v=M58eiYbM6AE - Что такое ООП
+1. [Что такое ООП](https://www.youtube.com/watch?v=M58eiYbM6AE)
+1. [Инкапсуляция](https://www.youtube.com/watch?v=EvGi6XDgV7w)
+1. [Наследование](https://www.youtube.com/watch?v=eI0XzQw3V0Q)
+1. [Полиморфизм](https://www.youtube.com/watch?v=Ay_GwOQWPs8)
 
 ## 09.06.2020 - 11.06.2020
 ### Что было:
