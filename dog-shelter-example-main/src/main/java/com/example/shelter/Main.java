@@ -20,13 +20,15 @@ public class Main
         System.out.println("Выберете сохранять к коллекцию(1) или в массив(2)?");
         Scanner in = new Scanner(System.in);
         int selectedCase = in.nextInt();
-        if(selectedCase == 1)
+        if (selectedCase == 1)
         {
             caseWithArrayList();
-        } else if (selectedCase == 2)
+        }
+        else if (selectedCase == 2)
         {
             caseWithArray();
-        } else
+        }
+        else
         {
             System.out.println("некорректный ввод. Пока");
         }
@@ -40,7 +42,6 @@ public class Main
 
         String string = null;
 
-
         while (!"exit".equals(string))
         {
             System.out.println("dog new name:");
@@ -48,11 +49,15 @@ public class Main
             Dog newDog = new Dog();
             newDog.name = string;
             newDog.dogStatus = CurrentDogStatus.getStatus();
-            try {newDog.visitTime = DogTime.dogAdmissionTime();} catch (Exception e){
+            try
+            {
+                newDog.visitTime = DogTime.dogAdmissionTime();
+            }
+            catch (Exception e)
+            {
                 System.out.println("wrong date format");
                 newDog.visitTime = LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES);
             }
-
             dogs.add(newDog);
         }
 
@@ -73,7 +78,12 @@ public class Main
             Dog newDog = new Dog();
             newDog.name = string;
             newDog.dogStatus = CurrentDogStatus.getStatus();
-            try {newDog.visitTime = DogTime.dogAdmissionTime();} catch (Exception e){
+            try
+            {
+                newDog.visitTime = DogTime.dogAdmissionTime();
+            }
+            catch (Exception e)
+            {
                 System.out.println("wrong date format");
                 newDog.visitTime = LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES);
             }
