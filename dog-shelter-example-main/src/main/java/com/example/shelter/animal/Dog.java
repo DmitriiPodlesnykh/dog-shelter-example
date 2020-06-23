@@ -7,18 +7,17 @@ import java.time.LocalDateTime;
  */
 public class Dog
 {
-
     public String name = "Sharic";
-    public LocalDateTime DogTime = LocalDateTime.now();
-    public String DogStatus = "Принят";
+    public LocalDateTime visitTime = LocalDateTime.now();
+    public DogStatus dogStatus = DogStatus.ADMITTED;
 
 
     @Override
     public String toString() {
         return "Dog{" +
                 "name='" + name + '\'' +
-                ", time='" + DogTime + '\'' +
-                ", status='" + DogStatus + '\'' +
+                ", visitTime=" + visitTime +
+                ", dogStatus=" + dogStatus +
                 '}';
     }
 }
