@@ -1,8 +1,5 @@
 package com.example.shelter.animal;
 
-import com.example.shelter.Status;
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 /**
@@ -11,15 +8,16 @@ import java.time.LocalDateTime;
 public class Dog
 {
     public String name = "Sharic";
-    public LocalDateTime date;
-    public Status status;
+    public LocalDateTime visitTime = LocalDateTime.now();
+    public DogStatus dogStatus = DogStatus.ADMITTED;
+
 
     @Override
     public String toString() {
         return "Dog{" +
                 "name='" + name + '\'' +
-                ", date=" + date +
-                ", status=" + status +
+                ", visitTime=" + visitTime +
+                ", dogStatus=" + dogStatus +
                 '}';
     }
 }
