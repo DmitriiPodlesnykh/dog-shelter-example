@@ -39,29 +39,21 @@ public class Main {
             System.out.println("dog status:");
            String  status = in.nextLine();
             if (!status.equals("")) {
-
                 newDog.DogStatus = status;
             }
-
-
             System.out.println("dog time:");
             String time1 = in.nextLine();
             if (!time1.equals("")) {
                 newDog.DogTime = LocalDateTime.parse(time1);
                 //newDog.DogTime.getDayOfWeek();
-
             }
-
-
             dogs.add(newDog);
         }
-
         System.out.println(dogs);
     }
 
     private static void caseWithArray() {
         Scanner in = new Scanner(System.in);
-
         Dog[] dogs = new Dog[5];
         int index = 0;
         String string = null;
