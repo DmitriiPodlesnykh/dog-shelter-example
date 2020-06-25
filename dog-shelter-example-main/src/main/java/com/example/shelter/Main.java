@@ -2,14 +2,13 @@ package com.example.shelter;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalUnit;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.example.shelter.animal.CurrentDogStatus;
 import com.example.shelter.animal.Dog;
-import com.example.shelter.animal.DogStatus;
 import com.example.shelter.animal.DogTime;
+import com.example.shelter.db.ShelterDataAccess;
 
 import java.util.List;
 

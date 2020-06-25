@@ -1,4 +1,4 @@
-package com.example.shelter;
+package com.example.shelter.db;
 
 import java.util.ArrayList;
 import java.util.HashSet;
