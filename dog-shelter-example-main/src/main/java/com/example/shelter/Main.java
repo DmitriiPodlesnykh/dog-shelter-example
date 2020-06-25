@@ -17,6 +17,15 @@ public class Main
 {
     public static void main(String... args)
     {
+        //Работа с БД
+        System.out.println("текущее количество dogs = "  + ShelterDataAccess.getCountDogs());
+
+        int dogId = 3;
+        String dbDogName = ShelterDataAccess.getDogNameById(dogId);
+        System.out.println("Dog с id = " + dogId + " зовут " + dbDogName );
+
+        //Работа с БД закончена
+
         System.out.println("Выберете сохранять к коллекцию(1) или в массив(2)?");
         Scanner in = new Scanner(System.in);
         int selectedCase = in.nextInt();
