@@ -1,16 +1,22 @@
 plugins {
-    id 'java'
+    id "application"
 }
-
-group 'com.example.shelter'
-version '1.0-SNAPSHOT'
-
+ext {
+    javaMainClass = "com.example.shelter.Main"
+}
+application {
+    mainClassName = javaMainClass
+}
 sourceCompatibility = 1.8
-
 repositories {
     mavenCentral()
 }
 
 dependencies {
+    compile group: 'org.postgresql', name: 'postgresql', version: '9.3-1100-jdbc4'
+
     testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+run {
+    standardInput = System.in
 }

@@ -1,8 +1,27 @@
 # dog-shelter-example
 ![Java CI with Gradle](https://github.com/DmitriiPodlesnykh/dog-shelter-example/workflows/Java%20CI%20with%20Gradle/badge.svg?branch=master)
 
-Точка входа 
-<code>dog-shelter-example-main/src/main/java/com/example/shelter/Main.java</code>
+Запуск проекта:
+1. Открыть панель Gradle в Idea: View -> Tool Windows -> Gradle
+1. В открывшимся окне развернуть dog-shelter-example -> tasks -> application -> run
+1. запустить run
+
+## 23.06.2020
+### Что было:
+
+* Собрали и запустили проект используя Gradle.
+* JDBC
+* Получили данные из внешней БД
+
+### Что почитать:
+1. [JDBC или с чего всё начинается](https://javarush.ru/groups/posts/2172-jdbc-ili-s-chego-vsje-nachinaetsja)
+1. Факультативно [Инструменты для сборки проекта, включая абзац про Gradle](https://javarush.ru/groups/posts/2318-kompiljacija-v-java)
+### Рекомендуется выполнить:
+Собрать и запустить проект коммандой <code>dog-shelter-example:tasks:application:run</code>
+Реализовать методы:
+1. <code>ShelterDataAccess.getAllDogNames()</code>
+1. <code>ShelterDataAccess.getUniqueDogNames()</code>
+1. <code>ShelterDataAccess.getAllDogs()</code>
 
 ## 16.06.2020
 ### Что почитать:
