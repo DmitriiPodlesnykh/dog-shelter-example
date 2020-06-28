@@ -142,7 +142,6 @@ public class ShelterDataAccess
         {
             e.printStackTrace();
         }
-
         return allDogsList;
     }
 }
