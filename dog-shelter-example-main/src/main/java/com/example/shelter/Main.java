@@ -23,6 +23,10 @@ public class Main
         String dbDogName = ShelterDataAccess.getDogNameById(dogId);
         System.out.println("Dog с id = " + dogId + " зовут " + dbDogName );
 
+        System.out.println("Список всех имен собак: " + ShelterDataAccess.getAllDogNames());
+        System.out.println("Список уникальных имен собак: " + ShelterDataAccess.getUniqueDogNames());
+        System.out.println("Список всех собак: " + ShelterDataAccess.getAllDogs());
+
         //Работа с БД закончена
 
         System.out.println("Выберете сохранять к коллекцию(1) или в массив(2)?");
