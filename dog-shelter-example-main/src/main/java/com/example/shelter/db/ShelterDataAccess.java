@@ -125,7 +125,7 @@ public class ShelterDataAccess
     public static List<Dog> getAllDogs()
     {
         String currentSelect = "SELECT * FROM DOGS";
-        ArrayList allDogsList = new ArrayList<>();
+        ArrayList<Dog> allDogsList = new ArrayList<>();
         try
         {
             Connection connection = DriverManager.getConnection(DB_CONNECTION);
@@ -135,7 +135,11 @@ public class ShelterDataAccess
 
             while (resultSet.next())
             {
-                allDogsList.add("Dog " + resultSet.getString(1) + " with name " + resultSet.getString(2));
+//                Dog dog = new Dog();
+//                dog.id = resultSet.getInt(1);
+//                dog.name = resultSet.getString(2);
+//                allDogsList.add(dog);
+                allDogsList.add(new Dog(resultSet.getInt(1), resultSet.getString(2)));
             }
         }
         catch (SQLException e)
