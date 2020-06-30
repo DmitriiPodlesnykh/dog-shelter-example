@@ -56,26 +56,25 @@ public class Main
             string = in.nextLine();
             Dog newDog = new Dog();
             newDog.name = string;
-            System.out.println("dog status:");
-            String  status = in.nextLine();
-            if (!status.equals("")) {
-
-                newDog.dogStatus = CurrentDogStatus.getStatus();
+            newDog.dogStatus = CurrentDogStatus.getStatus();
+            try
+            {
+                newDog.visitTime = DogTime.dogAdmissionTime();
             }
-            System.out.println("dog time:");
-            String time1 = in.nextLine();
-            if (!time1.equals("")) {
-                newDog.visitTime = LocalDateTime.parse(time1);
-
+            catch (Exception e)
+            {
+                System.out.println("wrong date format");
+                newDog.visitTime = LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES);
             }
+            dogs.add(newDog);
+        }
 
         System.out.println(dogs);
     }
 
-        private static void caseWithArray()
-        {
-            private static void caseWithArray() {
-            Scanner in = new Scanner(System.in);
+    private static void caseWithArray()
+    {
+        Scanner in = new Scanner(System.in);
 
         Dog[] dogs = new Dog[5];
         int index = 0;
@@ -86,6 +85,16 @@ public class Main
             string = in.nextLine();
             Dog newDog = new Dog();
             newDog.name = string;
+            newDog.dogStatus = CurrentDogStatus.getStatus();
+            try
+            {
+                newDog.visitTime = DogTime.dogAdmissionTime();
+            }
+            catch (Exception e)
+            {
+                System.out.println("wrong date format");
+                newDog.visitTime = LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES);
+            }
             dogs[index] = newDog;
             index++;
         }
