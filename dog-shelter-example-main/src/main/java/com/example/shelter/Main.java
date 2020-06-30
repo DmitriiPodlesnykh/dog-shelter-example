@@ -1,11 +1,14 @@
 package com.example.shelter;
 
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import com.example.shelter.animal.CurrentDogStatus;
 import com.example.shelter.animal.Dog;
-import com.example.shelter.animal.Status;
+import com.example.shelter.animal.DogTime;
+import com.example.shelter.db.ShelterDataAccess;
 
 import java.util.List;
 
@@ -13,16 +16,27 @@ public class Main
 {
     public static void main(String... args)
     {
+        //Работа с БД
+        System.out.println("текущее количество dogs = "  + ShelterDataAccess.getCountDogs());
+
+        int dogId = 3;
+        String dbDogName = ShelterDataAccess.getDogNameById(dogId);
+        System.out.println("Dog с id = " + dogId + " зовут " + dbDogName );
+
+        //Работа с БД закончена
+
         System.out.println("Выберете сохранять к коллекцию(1) или в массив(2)?");
         Scanner in = new Scanner(System.in);
         int selectedCase = in.nextInt();
-        if(selectedCase == 1)
+        if (selectedCase == 1)
         {
             caseWithArrayList();
-        } else if (selectedCase == 2)
+        }
+        else if (selectedCase == 2)
         {
             caseWithArray();
-        } else
+        }
+        else
         {
             System.out.println("некорректный ввод. Пока");
         }
@@ -42,7 +56,16 @@ public class Main
             string = in.nextLine();
             Dog newDog = new Dog();
             newDog.name = string;
-
+            newDog.dogStatus = CurrentDogStatus.getStatus();
+            try
+            {
+                newDog.visitTime = DogTime.dogAdmissionTime();
+            }
+            catch (Exception e)
+            {
+                System.out.println("wrong date format");
+                newDog.visitTime = LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES);
+            }
             dogs.add(newDog);
         }
 
@@ -62,33 +85,18 @@ public class Main
             string = in.nextLine();
             Dog newDog = new Dog();
             newDog.name = string;
+            newDog.dogStatus = CurrentDogStatus.getStatus();
+            try
+            {
+                newDog.visitTime = DogTime.dogAdmissionTime();
+            }
+            catch (Exception e)
+            {
+                System.out.println("wrong date format");
+                newDog.visitTime = LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES);
+            }
             dogs[index] = newDog;
             index++;
-
-            System.out.println("dog arrival date (e.g. 2012-12-12T10:00:30)");
-            string = in.nextLine();
-            if (string.length()>0) {
-                newDog.arrivalDateTime = LocalDateTime.parse(string);
-            }
-
-            System.out.println("dog status (A/N/D)");
-            string = in.nextLine();
-            if (string.length()==1) {
-                if ("A".equals(string)){
-                    newDog.status = Status.ACCEPTED;
-                }
-                else if ("N".equals(string)){
-                    newDog.status = Status.NOTACCEPTED;
-                }
-                else if ("D".equals(string)){
-                    newDog.status = Status.DISCHARGED;
-                }
-                else
-                    System.out.println("Entry is wrong. Default used.");
-            }
-
-            System.out.println("Type 'exit' to complete or any to contiue");
-            string = in.nextLine();
         }
 
         //вывод результата на экран

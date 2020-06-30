@@ -1,25 +1,31 @@
 package com.example.shelter.animal;
 
-import java.time.LocalDateTime;
-
 /**
  * Important class
  */
 public class Dog
 {
+    public int id;
     public String name = "Sharic";
-    public LocalDateTime arrivalDateTime = LocalDateTime.now();
-    public Status status = Status.ACCEPTED;
+    public LocalDateTime visitTime = LocalDateTime.now();
+    public DogStatus dogStatus = DogStatus.ADMITTED;
 
-
-    @Override
-    public String toString()
+    public Dog(final int id, final String name)
     {
-        return "Dog{" +
-                "name='" + name + '\'' +
-                "arrivalDateTime='" + arrivalDateTime + '\'' +
-                "status='" + status + '\'' +
-                '}';
+        this.id = id;
+        this.name = name;
     }
 
+    public Dog()
+    {
+    }
+
+    @Override
+    public String toString() {
+        return "Dog{" +
+                "name='" + name + '\'' +
+                ", visitTime=" + visitTime +
+                ", dogStatus=" + dogStatus +
+                '}';
+    }
 }
