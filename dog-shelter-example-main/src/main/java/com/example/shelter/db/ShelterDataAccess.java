@@ -71,7 +71,28 @@ public class ShelterDataAccess
      */
     public static List<String> getAllDogNames()
     {
-        return new ArrayList<>();
+        String currentSelect = "SELECT NAME FROM DOGS " ;
+        String resultName = "";
+        ArrayList fullList = new ArrayList();
+
+        try
+        {
+            Connection connection = DriverManager.getConnection(DB_CONNECTION);
+            Statement statement = connection.createStatement();
+
+            ResultSet resultSet = statement.executeQuery(currentSelect);
+
+            while (resultSet.next())
+            {
+                resultName = resultSet.getString(1);
+                fullList.add(resultName);
+            }
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+        return  fullList;
     }
 
     /**
@@ -79,7 +100,28 @@ public class ShelterDataAccess
      */
     public static Set<String> getUniqueDogNames()
     {
-        return new HashSet<>();
+        String currentSelect = "SELECT DISTINCT (NAME) FROM DOGS " ;
+        String resultName = "";
+        HashSet uniqueNames = new HashSet();
+        try
+        {
+            Connection connection = DriverManager.getConnection(DB_CONNECTION);
+            Statement statement = connection.createStatement();
+
+            ResultSet resultSet = statement.executeQuery(currentSelect);
+
+            while (resultSet.next())
+            {
+                resultName = resultSet.getString(1);
+                uniqueNames.add(resultName);
+            }
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+        return uniqueNames;
+
     }
 
     /**

@@ -10,6 +10,7 @@ import com.example.shelter.animal.Dog;
 import com.example.shelter.animal.DogTime;
 import com.example.shelter.db.ShelterDataAccess;
 
+import javax.sound.midi.Soundbank;
 import java.util.List;
 
 public class Main
@@ -23,6 +24,8 @@ public class Main
         String dbDogName = ShelterDataAccess.getDogNameById(dogId);
         System.out.println("Dog с id = " + dogId + " зовут " + dbDogName );
 
+        System.out.println("Все имена собак: " + ShelterDataAccess.getAllDogNames());
+        System.out.println("Все уникальные имена собак: " + ShelterDataAccess.getUniqueDogNames());
         //Работа с БД закончена
 
         System.out.println("Выберете сохранять к коллекцию(1) или в массив(2)?");
@@ -71,6 +74,8 @@ public class Main
 
         System.out.println(dogs);
     }
+
+
 
     private static void caseWithArray()
     {
