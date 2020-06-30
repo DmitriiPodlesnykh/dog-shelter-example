@@ -97,7 +97,7 @@ public class ShelterDataAccess
      */
     public static Set<String> getUniqueDogNames()
     {
-        String currentSelect = "SELECT NAME FROM DOGS";
+        String currentSelect = "SELECT DISTINCT NAME FROM DOGS";
         HashSet<String> uniqueDogsNamesSet = new HashSet<>();
         try
         {
