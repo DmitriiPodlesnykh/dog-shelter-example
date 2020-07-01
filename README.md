@@ -6,6 +6,14 @@
 1. В открывшимся окне развернуть dog-shelter-example -> tasks -> application -> run
 1. запустить run
 
+## 30.06.2020
+
+### Что почитать:
+1. [Try with resources](https://www.baeldung.com/java-try-with-resources)
+1. [Closing Database Connections in Java](https://stackoverflow.com/questions/2225221/closing-database-connections-in-java)
+1. [Исключения в Java](https://javarush.ru/groups/posts/isklyucheniya-java)
+
+
 ## 23.06.2020
 ### Что было:
 
