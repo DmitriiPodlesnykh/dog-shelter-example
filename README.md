@@ -19,13 +19,6 @@
 | DataBase           | `d91lfd343lpk2a`|
 | URL                | `jdbc:postgresql://ec2-54-247-78-30.eu-west-1.compute.amazonaws.com:5432/d91lfd343lpk2a`|
 
-*Host:* 
-Port: 5432
-User: xgelkpgtivsuvf
-Password: facd5537e5c673703e283c3a3728b73da206fbb123cef8bf310d2bee7d7c6202
-DataBase: d91lfd343lpk2a
-
-
 ## 30.06.2020
 
 ### Что почитать:
