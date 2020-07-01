@@ -1,7 +1,7 @@
 # dog-shelter-example
 ![Java CI with Gradle](https://github.com/DmitriiPodlesnykh/dog-shelter-example/workflows/Java%20CI%20with%20Gradle/badge.svg?branch=master)
 
-Запуск проекта:
+# Запуск проекта:
 1. Открыть панель Gradle в Idea: View -> Tool Windows -> Gradle
 1. В открывшимся окне развернуть dog-shelter-example -> tasks -> application -> run
 1. запустить run
@@ -18,6 +18,8 @@
 | Password          | `facd5537e5c673703e283c3a3728b73da206fbb123cef8bf310d2bee7d7c6202`|
 | DataBase           | `d91lfd343lpk2a`|
 | URL                | `jdbc:postgresql://ec2-54-247-78-30.eu-west-1.compute.amazonaws.com:5432/d91lfd343lpk2a`|
+
+# История занятий
 
 ## 30.06.2020
 
