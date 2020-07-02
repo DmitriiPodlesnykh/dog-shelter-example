@@ -32,7 +32,7 @@
 1. [Исключения в Java](https://javarush.ru/groups/posts/isklyucheniya-java)
 
 ### Рекомендуется выполнить:
-
+реализовать и проверить метод com.example.shelter.db.DogInsertDataAccess.addNewDogs(List<Dog> dogs)
 
 ## 23.06.2020
 ### Что было:
