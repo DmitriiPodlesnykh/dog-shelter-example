@@ -26,6 +26,8 @@ public class Main
 
         System.out.println("Все имена собак: " + ShelterDataAccess.getAllDogNames());
         System.out.println("Все уникальные имена собак: " + ShelterDataAccess.getUniqueDogNames());
+        System.out.println("Список всех собак: " + ShelterDataAccess.getAllDogs());
+
         //Работа с БД закончена
 
         System.out.println("Выберете сохранять к коллекцию(1) или в массив(2)?");

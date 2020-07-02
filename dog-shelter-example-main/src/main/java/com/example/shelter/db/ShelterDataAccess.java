@@ -128,7 +128,27 @@ public class ShelterDataAccess
      * @return список всех собак
      */
     public static List<Dog> getAllDogs()
-    {
-        return new ArrayList<>();
+    { String currentSelect = "SELECT * FROM DOGS " ;
+        String resultName = "";
+        ArrayList<Dog> allDogsList = new ArrayList<>();
+        try
+        {
+            Connection connection = DriverManager.getConnection(DB_CONNECTION);
+            Statement statement = connection.createStatement();
+
+            ResultSet resultSet = statement.executeQuery(currentSelect);
+
+            while (resultSet.next())
+            {
+
+                allDogsList.add(new Dog(resultSet.getInt(1),resultSet.getString(2)));
+            }
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+
+        return allDogsList;
     }
 }
