@@ -1,6 +1,9 @@
 package com.example.shelter.db;
 
 import java.sql.*;
+import java.util.List;
+
+import com.example.shelter.animal.Dog;
 
 public class DogInsertDataAccess {
 
@@ -13,6 +16,15 @@ public class DogInsertDataAccess {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+    }
+
+    /**
+     * Добавить всех собак из коллекции в БД
+     *
+     * @param dogs собаки
+     */
+    public static void addNewDogs(List<Dog> dogs) {
 
     }
 }
