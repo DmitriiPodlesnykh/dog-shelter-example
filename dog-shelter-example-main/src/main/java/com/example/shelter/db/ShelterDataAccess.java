@@ -17,7 +17,7 @@ import com.example.shelter.animal.Dog;
  */
 public class ShelterDataAccess
 {
-    private static final String DB_CONNECTION
+    public static final String DB_CONNECTION
             = "jdbc:postgresql://ec2-54-247-78-30.eu-west-1.compute.amazonaws.com:5432/d91lfd343lpk2a?sslmode=require&user=xgelkpgtivsuvf&password=facd5537e5c673703e283c3a3728b73da206fbb123cef8bf310d2bee7d7c6202";
 
     public static int getCountDogs()
@@ -37,6 +37,7 @@ public class ShelterDataAccess
             {
                 count = resultSet.getInt(1);
             }
+
         }
         catch (SQLException e)
         {
@@ -77,6 +78,7 @@ public class ShelterDataAccess
         }
         catch (SQLException e)
         {
+
             e.printStackTrace();
         }
         return resultName;
