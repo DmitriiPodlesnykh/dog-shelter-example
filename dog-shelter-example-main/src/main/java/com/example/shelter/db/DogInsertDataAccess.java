@@ -27,7 +27,7 @@ public class DogInsertDataAccess {
     /**
      * Добавить всех собак из коллекции в БД
      *
-     * @param dogs собаки
+     * --@param dogs собаки
      */
     public static void addNewDogs(String name, DogStatus status, LocalDateTime visit_time) {
         try (
@@ -35,7 +35,7 @@ public class DogInsertDataAccess {
                 PreparedStatement preparedStatement = connection.prepareStatement("insert into dogs (name,status,visit_time) values (?,?,?);")) {
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, status.name());
-            preparedStatement.setTime(3, visit_time);
+            preparedStatement.setTimestamp(3, Timestamp.valueOf(visit_time));
 
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
