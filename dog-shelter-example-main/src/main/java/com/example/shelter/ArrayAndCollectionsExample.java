@@ -12,27 +12,22 @@ import java.util.Scanner;
 
 public class ArrayAndCollectionsExample {
 
-    private static void caseWithArrayList()
-    {
+    private static void caseWithArrayList() {
         Scanner in = new Scanner(System.in);
 
         List<Dog> dogs = new ArrayList<>();
 
         String string = null;
 
-        while (!"exit".equals(string))
-        {
+        while (!"exit".equals(string)) {
             System.out.println("dog new name:");
             string = in.nextLine();
             Dog newDog = new Dog();
             newDog.name = string;
             newDog.dogStatus = CurrentDogStatus.getStatus();
-            try
-            {
+            try {
                 newDog.visitTime = DogTime.dogAdmissionTime();
-            }
-            catch (Exception e)
-            {
+            } catch (Exception e) {
                 System.out.println("wrong date format");
                 newDog.visitTime = LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES);
             }
@@ -42,26 +37,21 @@ public class ArrayAndCollectionsExample {
         System.out.println(dogs);
     }
 
-    private static void caseWithArray()
-    {
+    private static void caseWithArray() {
         Scanner in = new Scanner(System.in);
 
         Dog[] dogs = new Dog[5];
         int index = 0;
         String string = null;
-        while (!"exit".equals(string))
-        {
+        while (!"exit".equals(string)) {
             System.out.println("dog new name:");
             string = in.nextLine();
             Dog newDog = new Dog();
             newDog.name = string;
             newDog.dogStatus = CurrentDogStatus.getStatus();
-            try
-            {
+            try {
                 newDog.visitTime = DogTime.dogAdmissionTime();
-            }
-            catch (Exception e)
-            {
+            } catch (Exception e) {
                 System.out.println("wrong date format");
                 newDog.visitTime = LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES);
             }
@@ -70,8 +60,7 @@ public class ArrayAndCollectionsExample {
         }
 
         //вывод результата на экран
-        for (final Dog dog : dogs)
-        {
+        for (final Dog dog : dogs) {
             System.out.println(dog);
         }
     }
