@@ -2,8 +2,6 @@ package com.example.shelter;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 import com.example.shelter.animal.CurrentDogStatus;
@@ -27,21 +25,19 @@ public class Main
             newDog.name=string;
             newDog.dogStatus = CurrentDogStatus.getStatus();
             try{
-                newDog.visitTime=DogTime.dogAdmissionTime();
+                newDog.visitTime= DogTime.dogAdmissionTime();
             }
             catch (Exception e){
                 System.out.println("wrong format");
-                newDog.visitTime=LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES);
+                newDog.visitTime= LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES);
             }
             //DogInsertDataAccess.addNewDog(string);
             DogInsertDataAccess. addNewDogs(newDog.name,newDog.dogStatus,newDog.visitTime);
 
-                   }
+        }
 
         System.out.println("Dog table size = "  + ShelterDataAccess.getCountDogs());
     }
 
 
 }
-
-//
