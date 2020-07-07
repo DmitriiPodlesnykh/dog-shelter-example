@@ -17,17 +17,19 @@ import com.example.shelter.animal.Dog;
  */
 public class ShelterDataAccess
 {
-    private static final String DB_CONNECTION
+    public static final String DB_CONNECTION
             = "jdbc:postgresql://ec2-54-247-78-30.eu-west-1.compute.amazonaws.com:5432/d91lfd343lpk2a?sslmode=require&user=xgelkpgtivsuvf&password=facd5537e5c673703e283c3a3728b73da206fbb123cef8bf310d2bee7d7c6202";
 
     public static int getCountDogs()
     {
         int count = 0;
+        Connection connection = null;
+        Statement statement = null;
+        //try-catch-finally example
         try
         {
-            DriverManager.getConnection(DB_CONNECTION);
-            Connection connection = DriverManager.getConnection(DB_CONNECTION);
-            Statement statement = connection.createStatement();
+            connection = DriverManager.getConnection(DB_CONNECTION);
+            statement = connection.createStatement();
 
             ResultSet resultSet = statement.executeQuery("select COUNT(1) from DOGS");
 
@@ -35,10 +37,23 @@ public class ShelterDataAccess
             {
                 count = resultSet.getInt(1);
             }
+
         }
         catch (SQLException e)
         {
             e.printStackTrace();
+        }
+        finally
+        {
+            try
+            {
+                statement.close();
+                connection.close();
+            }
+            catch (SQLException e)
+            {
+                e.printStackTrace();
+            }
         }
         return count;
     }
@@ -47,11 +62,13 @@ public class ShelterDataAccess
     {
         String currentSelect = "SELECT NAME FROM DOGS WHERE ID =" + id;
         String resultName = "";
-        try
-        {
-            Connection connection = DriverManager.getConnection(DB_CONNECTION);
-            Statement statement = connection.createStatement();
 
+        // try with resources example
+        try (
+                Connection connection = DriverManager.getConnection(DB_CONNECTION);
+                Statement statement = connection.createStatement();
+        )
+        {
             ResultSet resultSet = statement.executeQuery(currentSelect);
 
             while (resultSet.next())
@@ -61,6 +78,7 @@ public class ShelterDataAccess
         }
         catch (SQLException e)
         {
+
             e.printStackTrace();
         }
         return resultName;
@@ -69,9 +87,27 @@ public class ShelterDataAccess
     /**
      * @return имена всех собак
      */
-    public static List<String> getAllDogNames()
+    public static ArrayList<String> getAllDogNames()
     {
-        return new ArrayList<>();
+        String currentSelect = "SELECT NAME FROM DOGS";
+        ArrayList<String> allNamesList = new ArrayList<>();
+        try (
+                Connection connection = DriverManager.getConnection(DB_CONNECTION);
+                Statement statement = connection.createStatement();
+        )
+        {
+            ResultSet resultSet = statement.executeQuery(currentSelect);
+
+            while (resultSet.next())
+            {
+                allNamesList.add(resultSet.getString(1));
+            }
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+        return allNamesList;
     }
 
     /**
@@ -79,7 +115,27 @@ public class ShelterDataAccess
      */
     public static Set<String> getUniqueDogNames()
     {
-        return new HashSet<>();
+        String currentSelect = "SELECT NAME FROM DOGS";
+        HashSet<String> uniqueDogsNamesSet = new HashSet<>();
+
+        try (
+                Connection connection = DriverManager.getConnection(DB_CONNECTION);
+                Statement statement = connection.createStatement();
+        )
+        {
+            ResultSet resultSet = statement.executeQuery(currentSelect);
+
+            while (resultSet.next())
+            {
+                uniqueDogsNamesSet.add(resultSet.getString(1));
+            }
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+
+        return uniqueDogsNamesSet;
     }
 
     /**
@@ -87,6 +143,28 @@ public class ShelterDataAccess
      */
     public static List<Dog> getAllDogs()
     {
-        return new ArrayList<>();
+        String currentSelect = "SELECT * FROM DOGS";
+        ArrayList<Dog> allDogsList = new ArrayList<>();
+        try (
+                Connection connection = DriverManager.getConnection(DB_CONNECTION);
+                Statement statement = connection.createStatement();
+        )
+        {
+            ResultSet resultSet = statement.executeQuery(currentSelect);
+
+            while (resultSet.next())
+            {
+                //                Dog dog = new Dog();
+                //                dog.id = resultSet.getInt(1);
+                //                dog.name = resultSet.getString(2);
+                //                allDogsList.add(dog);
+                allDogsList.add(new Dog(resultSet.getInt(1), resultSet.getString(2)));
+            }
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+        return allDogsList;
     }
 }
