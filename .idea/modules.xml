@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/IdeaProjects.dog-shelter-example.iml" filepath="$PROJECT_DIR$/.idea/modules/IdeaProjects.dog-shelter-example.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/dog-shelter-example.iml" filepath="$PROJECT_DIR$/.idea/dog-shelter-example.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/dog-shelter-example-main.iml" filepath="$PROJECT_DIR$/.idea/modules/dog-shelter-example-main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/dog-shelter-example-main.main.iml" filepath="$PROJECT_DIR$/.idea/modules/dog-shelter-example-main.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/dog-shelter-example-main.test.iml" filepath="$PROJECT_DIR$/.idea/modules/dog-shelter-example-main.test.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dog-shelter-example-main/dog-shelter-example.dog-shelter-example-main.iml" filepath="$PROJECT_DIR$/.idea/modules/dog-shelter-example-main/dog-shelter-example.dog-shelter-example-main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dog-shelter-example-main/dog-shelter-example.dog-shelter-example-main.main.iml" filepath="$PROJECT_DIR$/.idea/modules/dog-shelter-example-main/dog-shelter-example.dog-shelter-example-main.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dog-shelter-example-main/dog-shelter-example.dog-shelter-example-main.test.iml" filepath="$PROJECT_DIR$/.idea/modules/dog-shelter-example-main/dog-shelter-example.dog-shelter-example-main.test.iml" />
     </modules>
   </component>
 </project>

@@ -71,7 +71,25 @@ public class ShelterDataAccess
      */
     public static List<String> getAllDogNames()
     {
-        return new ArrayList<>();
+        String currentSelect = "SELECT NAME FROM DOGS";
+        ArrayList<String> allNamesResult = new ArrayList<>();
+        try
+        {
+            Connection connection = DriverManager.getConnection(DB_CONNECTION);
+            Statement statement = connection.createStatement();
+
+            ResultSet resultSet = statement.executeQuery(currentSelect);
+
+            while (resultSet.next())
+            {
+                allNamesResult.add(resultSet.getString(1));
+            }
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+        return allNamesResult;
     }
 
     /**
@@ -79,14 +97,53 @@ public class ShelterDataAccess
      */
     public static Set<String> getUniqueDogNames()
     {
-        return new HashSet<>();
+        String currentSelect = "SELECT DISTINCT NAME FROM DOGS";
+        HashSet<String> uniqueDogNames = new HashSet<>();
+        try
+        {
+            Connection connection = DriverManager.getConnection(DB_CONNECTION);
+            Statement statement = connection.createStatement();
+
+            ResultSet resultSet = statement.executeQuery(currentSelect);
+
+            while (resultSet.next())
+            {
+                uniqueDogNames.add(resultSet.getString(1));
+            }
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+        return uniqueDogNames;
     }
 
     /**
      * @return список всех собак
      */
-    public static List<Dog> getAllDogs()
+    public static ArrayList<Dog> getAllDogs()
     {
-        return new ArrayList<>();
+        String currentSelect = "SELECT * FROM DOGS";
+        ArrayList<Dog> allDogs = new ArrayList<>();
+        try
+        {
+            Connection connection = DriverManager.getConnection(DB_CONNECTION);
+            Statement statement = connection.createStatement();
+
+            ResultSet resultSet = statement.executeQuery(currentSelect);
+
+            while (resultSet.next())
+            {
+                Dog dog = new Dog();
+                dog.id = resultSet.getInt(1);
+                dog.name = resultSet.getString(2);
+                allDogs.add(new Dog(resultSet.getInt(1), resultSet.getString(2)));
+            }
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+        return allDogs;
     }
 }
