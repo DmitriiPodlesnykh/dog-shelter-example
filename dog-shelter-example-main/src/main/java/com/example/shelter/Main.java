@@ -10,10 +10,15 @@ import com.example.shelter.animal.CurrentDogStatus;
 import com.example.shelter.animal.Dog;
 import com.example.shelter.animal.DogTime;
 import com.example.shelter.db.DogInsertDataAccess;
+import com.example.shelter.db.DogInsertDataAccessByDmitrii;
+import com.example.shelter.db.DogInsertDataAccessInterface;
 import com.example.shelter.db.ShelterDataAccess;
 
 
 public class Main {
+
+    private static DogInsertDataAccessInterface dogInsertDataAccess = new DogInsertDataAccess();
+
     public static void main(String... args) {
         Scanner in = new Scanner(System.in);
         String string = null;
@@ -31,7 +36,9 @@ public class Main {
                 newDog.visitTime = LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES);
             }
             listDog.add(newDog);
-            DogInsertDataAccess.addNewDogs(listDog);
+
+
+            dogInsertDataAccess.addNewDogs(listDog);
 
 
         }
