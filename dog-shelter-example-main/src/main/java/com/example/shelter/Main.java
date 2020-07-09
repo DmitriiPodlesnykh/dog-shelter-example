@@ -9,15 +9,17 @@ import java.util.Scanner;
 import com.example.shelter.animal.CurrentDogStatus;
 import com.example.shelter.animal.Dog;
 import com.example.shelter.animal.DogTime;
-import com.example.shelter.db.DogInsertDataAccess;
-import com.example.shelter.db.DogInsertDataAccessByDmitrii;
-import com.example.shelter.db.DogInsertDataAccessInterface;
-import com.example.shelter.db.ShelterDataAccess;
+import com.example.shelter.db.*;
 
 
 public class Main {
 
     private static DogInsertDataAccessInterface dogInsertDataAccess = new DogInsertDataAccess();
+
+
+    private static ShelterDataAccessInterface shelterDataAccess = new ShelterDataAccessCustom();
+
+
 
     public static void main(String... args) {
         Scanner in = new Scanner(System.in);
@@ -42,8 +44,7 @@ public class Main {
 
 
         }
-
-        System.out.println("Dog table size = " + ShelterDataAccess.getCountDogs());
+        System.out.println("Dog table size = " + shelterDataAccess.getCountDogs());
     }
 
 
