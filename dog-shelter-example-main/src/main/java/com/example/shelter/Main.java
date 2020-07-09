@@ -8,20 +8,23 @@ import java.util.Scanner;
 
 import com.example.shelter.animal.CurrentDogStatus;
 import com.example.shelter.animal.Dog;
+import com.example.shelter.animal.DogStatus;
 import com.example.shelter.animal.DogTime;
 import com.example.shelter.db.*;
-
+import com.example.shelter.db.dogs.update.DogUpdateDataAccess;
+import com.example.shelter.db.dogs.update.DogUpdateDataAccessImpl;
 
 public class Main {
 
     private static DogInsertDataAccessInterface dogInsertDataAccess = new DogInsertDataAccess();
 
+    private static ShelterDataAccessInterface shelterDataAccess = new ShelterDataAccess();
 
-    private static ShelterDataAccessInterface shelterDataAccess = new ShelterDataAccessCustom();
-
-
+    private static DogUpdateDataAccess dogUpdateDataAccess = new DogUpdateDataAccessImpl();
 
     public static void main(String... args) {
+        dogUpdateDataAccess.replaceDogStatusById(2, DogStatus.DISCHARGED);
+
         Scanner in = new Scanner(System.in);
         String string = null;
         List<Dog> listDog = new ArrayList<>();
