@@ -40,7 +40,7 @@ public class DogUpdateDataAccessImplByNL implements DogUpdateDataAccess {
             statement.setString(1, statusString);
 
             statement.setString(2, name);
-
+            //System.out.println(statement);
             statement.executeUpdate();
         }
         catch (SQLException e) {
@@ -53,10 +53,11 @@ public class DogUpdateDataAccessImplByNL implements DogUpdateDataAccess {
         try (Connection connection = DriverManager.getConnection(ShelterDataAccess.DB_CONNECTION);
              PreparedStatement statement = connection.prepareStatement(SET_DISCHARGE_DOG_STATUS_BY_DATE);)
         {
-            statement.setString(1, String.valueOf(DogStatus.DISCHARGED));
+            statement.setString(1, DogStatus.DISCHARGED.name());
 
             statement.setDate(2, java.sql.Date.valueOf(lastDate));
-
+            //statement.setObject(2, lastDate);
+            //System.out.println(statement);
             statement.executeUpdate();
         }
         catch (SQLException e) {

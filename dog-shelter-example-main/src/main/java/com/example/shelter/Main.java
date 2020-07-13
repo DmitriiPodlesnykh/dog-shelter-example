@@ -26,8 +26,10 @@ public class Main {
 
     public static void main(String... args) {
         dogUpdateDataAccess.replaceDogStatusById(99, DogStatus.ADMITTED);
-        dogUpdateDataAccess.replaceDogStatusByName("'Shadow'", DogStatus.NOT_ADMITTED);
-        //dogUpdateDataAccess.dischargeAllDogsBeforeDate();
+        dogUpdateDataAccess.replaceDogStatusByName("Shadow", DogStatus.NOT_ADMITTED);
+        
+        LocalDate date = LocalDate.of(1980,12,24);
+        dogUpdateDataAccess.dischargeAllDogsBeforeDate(date);
 
         Scanner in = new Scanner(System.in);
         String string = null;
