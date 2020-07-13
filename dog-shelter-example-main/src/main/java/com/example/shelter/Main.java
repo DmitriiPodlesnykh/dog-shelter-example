@@ -1,5 +1,6 @@
 package com.example.shelter;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import com.example.shelter.animal.DogTime;
 import com.example.shelter.db.*;
 import com.example.shelter.db.dogs.update.DogUpdateDataAccess;
 import com.example.shelter.db.dogs.update.DogUpdateDataAccessImpl;
+import com.example.shelter.db.dogs.update.DogUpdateDataAccessImplByNL;
 
 public class Main {
 
@@ -20,10 +22,12 @@ public class Main {
 
     private static ShelterDataAccessInterface shelterDataAccess = new ShelterDataAccess();
 
-    private static DogUpdateDataAccess dogUpdateDataAccess = new DogUpdateDataAccessImpl();
+    private static DogUpdateDataAccess dogUpdateDataAccess = new DogUpdateDataAccessImplByNL();
 
     public static void main(String... args) {
-        dogUpdateDataAccess.replaceDogStatusById(2, DogStatus.DISCHARGED);
+        dogUpdateDataAccess.replaceDogStatusById(99, DogStatus.ADMITTED);
+        dogUpdateDataAccess.replaceDogStatusByName("'Shadow'", DogStatus.NOT_ADMITTED);
+        //dogUpdateDataAccess.dischargeAllDogsBeforeDate();
 
         Scanner in = new Scanner(System.in);
         String string = null;
