@@ -1,8 +1,68 @@
 # dog-shelter-example
 ![Java CI with Gradle](https://github.com/DmitriiPodlesnykh/dog-shelter-example/workflows/Java%20CI%20with%20Gradle/badge.svg?branch=master)
 
-Точка входа 
-<code>dog-shelter-example-main/src/main/java/com/example/shelter/Main.java</code>
+## Запуск проекта:
+1. Открыть панель Gradle в Idea: View -> Tool Windows -> Gradle
+1. В открывшимся окне развернуть dog-shelter-example -> tasks -> application -> run
+1. запустить run
+
+##Подключение к БД из консоли:
+1. [Информация для intellij idea community edition](https://www.jetbrains.com/help/idea/connecting-to-a-database.html#connect-to-postgresql-database)
+1. [Информация для intellij idea community edition](https://plugins.jetbrains.com/plugin/1800-database-navigator)
+1. Данные(Могут меняться, пишите если не получается подключиться):
+
+| **Название поля** | **Значение**      |
+| ------------------|:-----------------:|
+| Host              | `ec2-54-247-78-30.eu-west-1.compute.amazonaws.com` |
+| Port              | `5432`      |
+| User              | `xgelkpgtivsuvf`     |
+| Password          | `facd5537e5c673703e283c3a3728b73da206fbb123cef8bf310d2bee7d7c6202`|
+| DataBase          | `d91lfd343lpk2a`|
+| URL               | `jdbc:postgresql://ec2-54-247-78-30.eu-west-1.compute.amazonaws.com:5432/d91lfd343lpk2a`|
+
+# История занятий
+
+## 08.07.2020
+Вспомнили и применили на практике интерфейсы.
+
+### Что почитать:
+1. [Правила именования переменных, констант, классов, интерфейсов, перечислений, пакетов в Java](https://khasang.io/courses/cleancode/lectures/4428018)
+1. [Интерфейсы](https://javarush.ru/groups/posts/1981-dlja-chego-v-java-nuzhnih-interfeysih)
+1. [What is Interface in Java with Example](https://www.guru99.com/java-interface.html#:~:text=Java%20uses%20Interface%20to%20implement,are%20implicitly%20public%20and%20abstract.&text=To%20use%20an%20interface%20in,followed%20by%20the%20interface%20name.)
+
+### Рекомендуется выполнить:
+1. Создать класс в пакете com.example.shelter.db.dogs.update
+1. Имплементировать интерфейс DogUpdateDataAccess для созданного класса
+1. Реализовать методы
+
+## 30.06.2020-02.07.2020
+### Что было:
+1. Реализовали возможность добавлять данные в БД. [Statement/Prepared statement](https://metanit.com/java/database/2.6.php)
+
+### Что почитать:
+1. [Try with resources](https://www.baeldung.com/java-try-with-resources)
+1. [Closing Database Connections in Java](https://stackoverflow.com/questions/2225221/closing-database-connections-in-java)
+1. [Исключения в Java](https://javarush.ru/groups/posts/isklyucheniya-java)
+
+### Рекомендуется выполнить:
+реализовать и проверить метод com.example.shelter.db.DogInsertDataAccess.addNewDogs(List<Dog> dogs)
+
+## 23.06.2020
+### Что было:
+
+* Собрали и запустили проект используя Gradle.
+* JDBC
+* Получили данные из внешней БД
+
+### Что почитать:
+1. [JDBC или с чего всё начинается](https://javarush.ru/groups/posts/2172-jdbc-ili-s-chego-vsje-nachinaetsja)
+1. Факультативно [Инструменты для сборки проекта, включая абзац про Gradle](https://javarush.ru/groups/posts/2318-kompiljacija-v-java)
+### Рекомендуется выполнить:
+Собрать и запустить проект коммандой <code>dog-shelter-example:tasks:application:run</code>
+Реализовать методы:
+1. <code>ShelterDataAccess.getAllDogNames()</code>
+1. <code>ShelterDataAccess.getUniqueDogNames()</code>
+1. <code>ShelterDataAccess.getAllDogs()</code>
 
 ## 16.06.2020
 ### Что почитать:
@@ -11,10 +71,9 @@
 1. [Наследование](https://www.youtube.com/watch?v=eI0XzQw3V0Q)
 1. [Полиморфизм](https://www.youtube.com/watch?v=Ay_GwOQWPs8)
 
-## 09.06.2020 - 11.06.2020
+## 09.06.2020
 ### Что было:
 Отвели ветки от master branch. Попробовали merge.
-Создали функционал добавления объектов Dog из консоли. С выбором имени
 
 ### Что почитать:
 1. https://www.jetbrains.com/help/idea/apply-changes-from-one-branch-to-another.html Только про merge

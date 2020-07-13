@@ -2,99 +2,53 @@ package com.example.shelter;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalUnit;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import com.example.shelter.animal.CurrentDogStatus;
 import com.example.shelter.animal.Dog;
 import com.example.shelter.animal.DogStatus;
 import com.example.shelter.animal.DogTime;
+import com.example.shelter.db.*;
+import com.example.shelter.db.dogs.update.DogUpdateDataAccess;
+import com.example.shelter.db.dogs.update.DogUpdateDataAccessImpl;
 
-import java.util.List;
+public class Main {
 
-public class Main
-{
-    public static void main(String... args)
-    {
-        System.out.println("Выберете сохранять к коллекцию(1) или в массив(2)?");
+    private static DogInsertDataAccessInterface dogInsertDataAccess = new DogInsertDataAccess();
+
+    private static ShelterDataAccessInterface shelterDataAccess = new ShelterDataAccess();
+
+    private static DogUpdateDataAccess dogUpdateDataAccess = new DogUpdateDataAccessImpl();
+
+    public static void main(String... args) {
+        dogUpdateDataAccess.replaceDogStatusById(2, DogStatus.DISCHARGED);
+
         Scanner in = new Scanner(System.in);
-        int selectedCase = in.nextInt();
-        if (selectedCase == 1)
-        {
-            caseWithArrayList();
-        }
-        else if (selectedCase == 2)
-        {
-            caseWithArray();
-        }
-        else
-        {
-            System.out.println("некорректный ввод. Пока");
-        }
-    }
-
-    private static void caseWithArrayList()
-    {
-        Scanner in = new Scanner(System.in);
-
-        List<Dog> dogs = new ArrayList<>();
-
         String string = null;
-
-        while (!"exit".equals(string))
-        {
-            System.out.println("dog new name:");
+        List<Dog> listDog = new ArrayList<>();
+        while (!"exit".equals(string)) {
+            System.out.println("Dog name: ");
             string = in.nextLine();
             Dog newDog = new Dog();
             newDog.name = string;
             newDog.dogStatus = CurrentDogStatus.getStatus();
-            try
-            {
+            try {
                 newDog.visitTime = DogTime.dogAdmissionTime();
-            }
-            catch (Exception e)
-            {
-                System.out.println("wrong date format");
+            } catch (Exception e) {
+                System.out.println("wrong format");
                 newDog.visitTime = LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES);
             }
-            dogs.add(newDog);
-        }
+            listDog.add(newDog);
 
-        System.out.println(dogs);
+
+            dogInsertDataAccess.addNewDogs(listDog);
+
+
+        }
+        System.out.println("Dog table size = " + shelterDataAccess.getCountDogs());
     }
 
-    private static void caseWithArray()
-    {
-        Scanner in = new Scanner(System.in);
 
-        Dog[] dogs = new Dog[5];
-        int index = 0;
-        String string = null;
-        while (!"exit".equals(string))
-        {
-            System.out.println("dog new name:");
-            string = in.nextLine();
-            Dog newDog = new Dog();
-            newDog.name = string;
-            newDog.dogStatus = CurrentDogStatus.getStatus();
-            try
-            {
-                newDog.visitTime = DogTime.dogAdmissionTime();
-            }
-            catch (Exception e)
-            {
-                System.out.println("wrong date format");
-                newDog.visitTime = LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES);
-            }
-            dogs[index] = newDog;
-            index++;
-        }
-
-        //вывод результата на экран
-        for (final Dog dog : dogs)
-        {
-            System.out.println(dog);
-        }
-    }
 }
