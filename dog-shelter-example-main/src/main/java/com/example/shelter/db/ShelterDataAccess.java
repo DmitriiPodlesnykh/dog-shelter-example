@@ -15,11 +15,11 @@ import com.example.shelter.animal.Dog;
 /**
  * Взаимодействие с БД
  */
-public class ShelterDataAccess {
+public class ShelterDataAccess implements ShelterDataAccessInterface{
     public static final String DB_CONNECTION
             = "jdbc:postgresql://ec2-54-247-78-30.eu-west-1.compute.amazonaws.com:5432/d91lfd343lpk2a?sslmode=require&user=xgelkpgtivsuvf&password=facd5537e5c673703e283c3a3728b73da206fbb123cef8bf310d2bee7d7c6202";
 
-    public static int getCountDogs() {
+    public int getCountDogs() {
         int count = 0;
         Connection connection = null;
         Statement statement = null;
@@ -47,7 +47,7 @@ public class ShelterDataAccess {
         return count;
     }
 
-    public static String getDogNameById(int id) {
+    public String getDogNameById(int id) {
         String currentSelect = "SELECT NAME FROM DOGS WHERE ID =" + id;
         String resultName = "";
 
@@ -71,7 +71,7 @@ public class ShelterDataAccess {
     /**
      * @return имена всех собак
      */
-    public static ArrayList<String> getAllDogNames() {
+    public ArrayList<String> getAllDogNames() {
         String currentSelect = "SELECT NAME FROM DOGS";
         ArrayList<String> allNamesList = new ArrayList<>();
         try (
@@ -92,7 +92,7 @@ public class ShelterDataAccess {
     /**
      * @return уникальные имена собак
      */
-    public static Set<String> getUniqueDogNames() {
+    public Set<String> getUniqueDogNames() {
         String currentSelect = "SELECT NAME FROM DOGS";
         HashSet<String> uniqueDogsNamesSet = new HashSet<>();
 
@@ -115,7 +115,7 @@ public class ShelterDataAccess {
     /**
      * @return список всех собак
      */
-    public static List<Dog> getAllDogs() {
+    public List<Dog> getAllDogs() {
         String currentSelect = "SELECT * FROM DOGS";
         ArrayList<Dog> allDogsList = new ArrayList<>();
         try (
