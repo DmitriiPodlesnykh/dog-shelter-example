@@ -22,6 +22,19 @@
 
 # История занятий
 
+## 08.07.2020
+Вспомнили и применили на практике интерфейсы.
+
+### Что почитать:
+1. [Правила именования переменных, констант, классов, интерфейсов, перечислений, пакетов в Java](https://khasang.io/courses/cleancode/lectures/4428018)
+1. [Интерфейсы](https://javarush.ru/groups/posts/1981-dlja-chego-v-java-nuzhnih-interfeysih)
+1. [What is Interface in Java with Example](https://www.guru99.com/java-interface.html#:~:text=Java%20uses%20Interface%20to%20implement,are%20implicitly%20public%20and%20abstract.&text=To%20use%20an%20interface%20in,followed%20by%20the%20interface%20name.)
+
+### Рекомендуется выполнить:
+1. Создать класс в пакете com.example.shelter.db.dogs.update
+1. Имплементировать интерфейс DogUpdateDataAccess для созданного класса
+1. Реализовать методы
+
 ## 30.06.2020-02.07.2020
 ### Что было:
 1. Реализовали возможность добавлять данные в БД. [Statement/Prepared statement](https://metanit.com/java/database/2.6.php)
