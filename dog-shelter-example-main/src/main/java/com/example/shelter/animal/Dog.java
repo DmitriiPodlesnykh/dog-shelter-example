@@ -5,21 +5,20 @@ import java.time.LocalDateTime;
 /**
  * Important class
  */
-public class Dog
-{
+public class Dog {
     public int id;
     public String name = "Sharic";
     public LocalDateTime visitTime = LocalDateTime.now();
     public DogStatus dogStatus = DogStatus.ADMITTED;
 
-    public Dog(final int id, final String name)
-    {
+    public Dog(final int id, final String name) {
         this.id = id;
         this.name = name;
+        //this.dogStatus=dogStatus;
+        // this.visitTime=visitTime;
     }
 
-    public Dog()
-    {
+    public Dog() {
     }
 
     @Override
