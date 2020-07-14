@@ -4,6 +4,7 @@ import com.example.shelter.animal.DogStatus;
 import com.example.shelter.db.ShelterDataAccess;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -40,7 +41,7 @@ public class DogUpdateDataAccessImplByNL implements DogUpdateDataAccess {
             statement.setString(1, statusString);
 
             statement.setString(2, name);
-            //System.out.println(statement);
+            System.out.println(statement);
             statement.executeUpdate();
         }
         catch (SQLException e) {
@@ -55,7 +56,7 @@ public class DogUpdateDataAccessImplByNL implements DogUpdateDataAccess {
         {
             statement.setString(1, DogStatus.DISCHARGED.name());
 
-            statement.setDate(2, java.sql.Date.valueOf(lastDate));
+            statement.setDate(2, Date.valueOf(lastDate));
             //statement.setObject(2, lastDate);
             //System.out.println(statement);
             statement.executeUpdate();
