@@ -1,5 +1,6 @@
 package com.example.shelter;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -26,7 +27,8 @@ public class Main {
     public static void main(String... args) {
        // dogUpdateDataAccess.replaceDogStatusById(3, DogStatus.DISCHARGED);
         dogUpdateDataAccess.replaceDogStatusByName("Dawn",DogStatus.DISCHARGED);
-        dogUpdateDataAccess.dischargeAllDogsBeforeDate('19711011', DogStatus.DISCHARGED);
+        LocalDate dogDate = LocalDate.of(1971,10,11);
+        dogUpdateDataAccess.dischargeAllDogsBeforeDate(dogDate);
 
 
         Scanner in = new Scanner(System.in);
