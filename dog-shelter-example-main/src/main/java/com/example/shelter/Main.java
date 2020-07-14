@@ -1,20 +1,17 @@
 package com.example.shelter;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import io.javalin.Javalin;
+import io.javalin.http.Context;
+import io.javalin.http.Handler;
 
-import com.example.shelter.animal.CurrentDogStatus;
-import com.example.shelter.animal.Dog;
-import com.example.shelter.animal.DogStatus;
-import com.example.shelter.animal.DogTime;
+
+import java.util.Set;
+
+
 import com.example.shelter.db.*;
 import com.example.shelter.db.dogs.update.DogUpdateDataAccess;
-import com.example.shelter.db.dogs.update.DogUpdateDataAccessImpl;
 import com.example.shelter.db.dogs.update.DogUpdateDataAccessImplByNL;
+import com.example.shelter.handler.HandlerCountDog;
 
 public class Main {
 
@@ -25,35 +22,32 @@ public class Main {
     private static DogUpdateDataAccess dogUpdateDataAccess = new DogUpdateDataAccessImplByNL();
 
     public static void main(String... args) {
-        dogUpdateDataAccess.replaceDogStatusById(99, DogStatus.ADMITTED);
-        dogUpdateDataAccess.replaceDogStatusByName("Shadow", DogStatus.NOT_ADMITTED);
-        
-        LocalDate date = LocalDate.of(1980,12,24);
-        dogUpdateDataAccess.dischargeAllDogsBeforeDate(date);
-
-        Scanner in = new Scanner(System.in);
-        String string = null;
-        List<Dog> listDog = new ArrayList<>();
-        while (!"exit".equals(string)) {
-            System.out.println("Dog name: ");
-            string = in.nextLine();
-            Dog newDog = new Dog();
-            newDog.name = string;
-            newDog.dogStatus = CurrentDogStatus.getStatus();
-            try {
-                newDog.visitTime = DogTime.dogAdmissionTime();
-            } catch (Exception e) {
-                System.out.println("wrong format");
-                newDog.visitTime = LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES);
+        Javalin app = Javalin.create().start(7000);
+        app.get("/", ctx -> ctx.result("Hello World 2 "));
+        app.get("/example", new Handler()
+        {
+            @Override
+            public void handle(final Context ctx) throws Exception
+            {
+                ctx.result("This is example");
             }
-            listDog.add(newDog);
+        });
 
+        Handler handlerCountDogs = new HandlerCountDog();
+        app.get("/count", handlerCountDogs);
 
-            dogInsertDataAccess.addNewDogs(listDog);
+        app.get("/dogs", new Handler()
+        {
+            @Override
+            public void handle(final Context ctx) throws Exception
+            {
+                Set<String> names =  shelterDataAccess.getUniqueDogNames();
 
+                ctx.json(names);
+            }
+        });
 
-        }
-        System.out.println("Dog table size = " + shelterDataAccess.getCountDogs());
+        app.get("/html2", ctx -> ctx.html("<h1>Hello <br>World 2</h1>"));
     }
 
 
