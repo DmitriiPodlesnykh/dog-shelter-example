@@ -11,7 +11,7 @@ public class DogUpdateDataAccessByValeriia implements DogUpdateDataAccess {
 
     private static final String UPDATE_DOG_STATUS_BY_ID = "UPDATE DOGS SET status = ? WHERE ID = ?";
     private static final String UPDATE_DOG_STATUS_BY_NAME = "UPDATE DOGS SET status = ? WHERE NAME = ?";
-    private static final String UPDATE_DOG_STATUS_BY_DATE = "UPDATE DOGS SET status = ? where visit_time <= ?;";
+    private static final String UPDATE_DOG_STATUS_BY_DATE = "UPDATE DOGS SET status = ? where visit_time < ?;";
 
     @Override
     public void replaceDogStatusById(int dogId, DogStatus status) {
