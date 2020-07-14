@@ -12,18 +12,22 @@ import com.example.shelter.animal.DogStatus;
 import com.example.shelter.animal.DogTime;
 import com.example.shelter.db.*;
 import com.example.shelter.db.dogs.update.DogUpdateDataAccess;
+import com.example.shelter.db.dogs.update.DogUpdateDataAccessByValeriia;
 import com.example.shelter.db.dogs.update.DogUpdateDataAccessImpl;
 
 public class Main {
 
-    private static DogInsertDataAccessInterface dogInsertDataAccess = new DogInsertDataAccess();
+    //private static DogInsertDataAccessInterface dogInsertDataAccess = new DogInsertDataAccess();
 
-    private static ShelterDataAccessInterface shelterDataAccess = new ShelterDataAccess();
+   // private static ShelterDataAccessInterface shelterDataAccess = new ShelterDataAccess();
 
-    private static DogUpdateDataAccess dogUpdateDataAccess = new DogUpdateDataAccessImpl();
+    private static DogUpdateDataAccess dogUpdateDataAccess = new DogUpdateDataAccessByValeriia();
 
     public static void main(String... args) {
-        dogUpdateDataAccess.replaceDogStatusById(2, DogStatus.DISCHARGED);
+       // dogUpdateDataAccess.replaceDogStatusById(3, DogStatus.DISCHARGED);
+        dogUpdateDataAccess.replaceDogStatusByName("Dawn",DogStatus.DISCHARGED);
+        dogUpdateDataAccess.dischargeAllDogsBeforeDate('19711011', DogStatus.DISCHARGED);
+
 
         Scanner in = new Scanner(System.in);
         String string = null;
@@ -41,13 +45,9 @@ public class Main {
                 newDog.visitTime = LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES);
             }
             listDog.add(newDog);
-
-
-            dogInsertDataAccess.addNewDogs(listDog);
-
-
         }
-        System.out.println("Dog table size = " + shelterDataAccess.getCountDogs());
+       // dogInsertDataAccess.addNewDogs(listDog);
+       // System.out.println("Dog table size = " + shelterDataAccess.getCountDogs());
     }
 
 

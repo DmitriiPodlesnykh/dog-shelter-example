@@ -19,6 +19,6 @@ public interface DogUpdateDataAccess
      *
      * @param lastDate дата до которой статус всех собак должен быть заменен на DogStatus.DISCHARGED
      */
-    void dischargeAllDogsBeforeDate(LocalDate lastDate);
+    void dischargeAllDogsBeforeDate(LocalDate lastDate,DogStatus status);
 
 }
