@@ -15,7 +15,7 @@ import com.example.shelter.db.*;
 import com.example.shelter.db.dogs.update.DogUpdateDataAccess;
 import com.example.shelter.db.dogs.update.DogUpdateDataAccessImplByNL;
 import com.example.shelter.handler.HandlerCountDog;
-import org.jetbrains.annotations.NotNull;
+import com.example.shelter.handler.HandlerDogInfoById;
 
 public class Main {
 
@@ -53,6 +53,9 @@ public class Main {
         app.get("/dogs/full", handlerAllDogs);
         //app.get("/dogs/full", ctx -> ctx.json(shelterDataAccess.getAllDogs()));
         app.get("/statuses", ctx -> ctx.html("All possible statuses: " + Arrays.toString(DogStatus.values())));
+
+        Handler handlerDogInfo = new HandlerDogInfoById();
+        app.get("/dogs/:id", handlerDogInfo);
     }
 
 }
