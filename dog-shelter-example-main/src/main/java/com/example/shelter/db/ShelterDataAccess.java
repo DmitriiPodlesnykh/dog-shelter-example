@@ -132,4 +132,21 @@ public class ShelterDataAccess implements ShelterDataAccessInterface{
         }
         return allDogsList;
     }
+    public ArrayList<String> getAllDogStatuses() {
+        String currentSelect = "SELECT distinct (STATUS) FROM DOGS";
+        ArrayList<String> allStatusList = new ArrayList<>();
+        try (
+                Connection connection = DriverManager.getConnection(DB_CONNECTION);
+                Statement statement = connection.createStatement();
+        ) {
+            ResultSet resultSet = statement.executeQuery(currentSelect);
+
+            while (resultSet.next()) {
+                allStatusList.add(resultSet.getString(1));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return allStatusList;
+    }
 }
