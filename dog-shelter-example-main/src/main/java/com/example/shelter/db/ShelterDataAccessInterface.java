@@ -13,7 +13,6 @@ public interface ShelterDataAccessInterface {
 
     String getDogNameById(int id);
 
-
     /**
      * @return имена всех собак
      */
