@@ -51,7 +51,7 @@ public class Main {
 
         Handler handlerAllDogs = new HandlerAllDogs();
         app.get("/dogs/full", handlerAllDogs);
-
+        //app.get("/dogs/full", ctx -> ctx.json(shelterDataAccess.getAllDogs()));
         app.get("/statuses", ctx -> ctx.html("All possible statuses: " + Arrays.toString(DogStatus.values())));
     }
 
