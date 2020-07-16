@@ -1,10 +1,13 @@
 package com.example.shelter;
 
+import com.example.shelter.animal.DogStatus;
+import com.example.shelter.handler.HandlerAllDogs;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
 import io.javalin.http.Handler;
 
 
+import java.util.Arrays;
 import java.util.Set;
 
 
@@ -12,6 +15,7 @@ import com.example.shelter.db.*;
 import com.example.shelter.db.dogs.update.DogUpdateDataAccess;
 import com.example.shelter.db.dogs.update.DogUpdateDataAccessImplByNL;
 import com.example.shelter.handler.HandlerCountDog;
+import org.jetbrains.annotations.NotNull;
 
 public class Main {
 
@@ -24,11 +28,9 @@ public class Main {
     public static void main(String... args) {
         Javalin app = Javalin.create().start(7000);
         app.get("/", ctx -> ctx.result("Hello World 2 "));
-        app.get("/example", new Handler()
-        {
+        app.get("/example", new Handler() {
             @Override
-            public void handle(final Context ctx) throws Exception
-            {
+            public void handle(final Context ctx) throws Exception {
                 ctx.result("This is example");
             }
         });
@@ -36,19 +38,21 @@ public class Main {
         Handler handlerCountDogs = new HandlerCountDog();
         app.get("/count", handlerCountDogs);
 
-        app.get("/dogs", new Handler()
-        {
+        app.get("/dogs", new Handler() {
             @Override
-            public void handle(final Context ctx) throws Exception
-            {
-                Set<String> names =  shelterDataAccess.getUniqueDogNames();
+            public void handle(final Context ctx) throws Exception {
+                Set<String> names = shelterDataAccess.getUniqueDogNames();
 
                 ctx.json(names);
             }
         });
 
         app.get("/html2", ctx -> ctx.html("<h1>Hello <br>World 2</h1>"));
-    }
 
+        Handler handlerAllDogs = new HandlerAllDogs();
+        app.get("/dogs/full", handlerAllDogs);
+
+        app.get("/statuses", ctx -> ctx.html("All possible statuses: " + Arrays.toString(DogStatus.values())));
+    }
 
 }
