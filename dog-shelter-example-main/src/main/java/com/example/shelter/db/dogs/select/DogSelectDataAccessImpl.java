@@ -22,7 +22,7 @@ public class DogSelectDataAccessImpl implements DogSelectDataAccess
                 PreparedStatement statement = connection.prepareStatement(currentSelect);
         ) {
             statement.setString(1, dogStatus);
-            System.out.println(statement);
+            //System.out.println(statement);
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
@@ -64,7 +64,6 @@ public class DogSelectDataAccessImpl implements DogSelectDataAccess
     public int getCountByStatus(String dogStatus)
     {
         String currentSelect = "SELECT COUNT(1) FROM DOGS WHERE STATUS = upper(?)";
-        List<Dog> result = new ArrayList<>();
         int countByStatus = 0;
         try (
                 Connection connection = DriverManager.getConnection(DB_CONNECTION);
