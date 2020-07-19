@@ -15,7 +15,7 @@ public interface DogUpdateDataAccess
     void replaceDogStatusByName(String name, DogStatus status);
 
     /**
-     * Изменить статус для всех собак, дата приема которых меньше указанной в параметре
+     * зменить статус для всех собак, дата приема которых меньше указанной в параметре
      *
      * @param lastDate дата до которой статус всех собак должен быть заменен на DogStatus.DISCHARGED
      */

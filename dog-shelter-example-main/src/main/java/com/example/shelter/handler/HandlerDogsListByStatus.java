@@ -6,7 +6,8 @@ import com.example.shelter.db.dogs.select.DogSelectDataAccess;
 import com.example.shelter.db.dogs.select.DogSelectDataAccessImpl;
 import io.javalin.http.Context;
 import io.javalin.http.Handler;
-import org.jetbrains.annotations.NotNull;
+
+import java.util.List;
 
 public class HandlerDogsListByStatus implements Handler
 {
@@ -14,8 +15,8 @@ public class HandlerDogsListByStatus implements Handler
 
     @Override
     public void handle(final Context ctx) throws Exception {
-        String status = ctx.pathParam("discharged");
-        Dog dog = dogSelectDataAccess.getDogByStatus(status);
-        ctx.json(dog);
+        String status = ctx.pathParam("dogStatus");
+        List<Dog> dogList = dogSelectDataAccess.getDogByStatus(status);
+        ctx.json(dogList);
     }
 }

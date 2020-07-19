@@ -1,37 +1,41 @@
 package com.example.shelter.db.dogs.select;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 import com.example.shelter.animal.Dog;
+import com.example.shelter.animal.DogStatus;
 
 import static com.example.shelter.db.ShelterDataAccess.DB_CONNECTION;
 
 public class DogSelectDataAccessImpl implements DogSelectDataAccess
 {
     @Override
-    public Dog getDogByStatus(String dogStatus) {
-        String currentSelect = "SELECT * FROM DOGS WHERE STATUS =" + dogStatus;
+    public List<Dog> getDogByStatus(String dogStatus) {
+        String currentSelect = "SELECT * FROM DOGS WHERE STATUS = upper(?)";
+        List<Dog> result = new ArrayList<>();
 
         try (
                 Connection connection = DriverManager.getConnection(DB_CONNECTION);
-                Statement statement = connection.createStatement();
+                PreparedStatement statement = connection.prepareStatement(currentSelect);
         ) {
-            ResultSet resultSet = statement.executeQuery(currentSelect);
+            statement.setString(1, dogStatus);
+            System.out.println(statement);
+            ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                Dog dog = new Dog(resultSet.getInt(1), resultSet.getString(2));
-                return dog;
+                Dog dog = new Dog(resultSet.getInt(1), resultSet.getString("NAME"));
+                dog.dogStatus = DogStatus.valueOf(resultSet.getString("status"));
+                dog.visitTime = resultSet.getTimestamp(3).toLocalDateTime();
+                result.add(dog);
             }
         } catch (SQLException e) {
 
             e.printStackTrace();
         }
-        return null;
+        return result;
     }
 
     @Override
@@ -57,24 +61,26 @@ public class DogSelectDataAccessImpl implements DogSelectDataAccess
     }
 
     @Override
-    public Dog getCountByStatus(String dogStatus)
+    public int getCountByStatus(String dogStatus)
     {
-        String currentSelect = "SELECT COUNT(1) FROM DOGS WHERE STATUS =" + dogStatus;
+        String currentSelect = "SELECT COUNT(1) FROM DOGS WHERE STATUS = upper(?)";
+        List<Dog> result = new ArrayList<>();
+        int countByStatus = 0;
         try (
                 Connection connection = DriverManager.getConnection(DB_CONNECTION);
-                Statement statement = connection.createStatement();
+                PreparedStatement statement = connection.prepareStatement(currentSelect);
         ) {
-            ResultSet resultSet = statement.executeQuery(currentSelect);
+            statement.setString(1, dogStatus);
+            ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                Dog dog = new Dog(resultSet.getInt(1), resultSet.getString(2));
-                return dog;
+                countByStatus = resultSet.getInt(1);
             }
         } catch (SQLException e) {
 
             e.printStackTrace();
         }
-        return null;
+        return countByStatus;
     }
 
 }

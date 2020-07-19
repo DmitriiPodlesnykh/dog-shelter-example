@@ -2,8 +2,7 @@ package com.example.shelter;
 
 import com.example.shelter.animal.DogStatus;
 import com.example.shelter.db.dogs.select.DogSelectDataAccessImpl;
-import com.example.shelter.handler.HandlerAllDogs;
-import com.example.shelter.handler.HandlerDogsListByStatus;
+import com.example.shelter.handler.*;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
 import io.javalin.http.Handler;
@@ -16,8 +15,6 @@ import java.util.Set;
 import com.example.shelter.db.*;
 import com.example.shelter.db.dogs.update.DogUpdateDataAccess;
 import com.example.shelter.db.dogs.update.DogUpdateDataAccessImplByNL;
-import com.example.shelter.handler.HandlerCountDog;
-import com.example.shelter.handler.HandlerDogInfoById;
 
 public class Main {
 
@@ -62,9 +59,10 @@ public class Main {
         app.get("/dogs/:id", handlerDogInfo);
 
         Handler handlerDogInfoByStatus = new HandlerDogsListByStatus();
-        app.get("/statuses/:discharged", handlerDogInfoByStatus);
+        app.get("/statuses/:dogStatus", handlerDogInfoByStatus);
 
-        app.get("/statuses/statistics/", ctx -> ctx.html("Status " + DogStatus.ADMITTED + " used " + dogSelectData.getCountByStatus(DogStatus.ADMITTED.name()) + " times"));
+        Handler handlerDogsCountByStatus = new HandlerDogsCountOfEveryStatus();
+        app.get("/count_by_statuses/statistics/", handlerDogsCountByStatus);
     }
 
 }
