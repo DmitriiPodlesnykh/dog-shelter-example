@@ -21,7 +21,7 @@ public class Main {
 
     private static DogInsertDataAccessInterface dogInsertDataAccess = new DogInsertDataAccess();
 
-    private static ShelterDataAccessInterface shelterDataAccess = new ShelterDataAccess();
+    private static ShelterDataAccessInterface shelterDataAccess = new ShelterDataAccessCustom();
 
     private static DogUpdateDataAccess dogUpdateDataAccess = new DogUpdateDataAccessImplByNL();
 
