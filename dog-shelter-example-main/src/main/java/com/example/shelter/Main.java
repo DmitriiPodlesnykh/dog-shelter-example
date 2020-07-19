@@ -1,7 +1,9 @@
 package com.example.shelter;
 
 import com.example.shelter.animal.DogStatus;
+import com.example.shelter.db.dogs.select.DogSelectDataAccessImpl;
 import com.example.shelter.handler.HandlerAllDogs;
+import com.example.shelter.handler.HandlerDogsListByStatus;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
 import io.javalin.http.Handler;
@@ -24,8 +26,10 @@ public class Main {
     private static ShelterDataAccessInterface shelterDataAccess = new ShelterDataAccess();
 
     private static DogUpdateDataAccess dogUpdateDataAccess = new DogUpdateDataAccessImplByNL();
+    private static DogSelectDataAccessImpl dogSelectData = new DogSelectDataAccessImpl();
 
     public static void main(String... args) {
+
         Javalin app = Javalin.create().start(7000);
         app.get("/", ctx -> ctx.result("Hello World 2 "));
         app.get("/example", new Handler() {
@@ -56,6 +60,11 @@ public class Main {
 
         Handler handlerDogInfo = new HandlerDogInfoById();
         app.get("/dogs/:id", handlerDogInfo);
+
+        Handler handlerDogInfoByStatus = new HandlerDogsListByStatus();
+        app.get("/statuses/:discharged", handlerDogInfoByStatus);
+
+        app.get("/statuses/statistics/", ctx -> ctx.html("Status " + DogStatus.ADMITTED + " used " + dogSelectData.getCountByStatus(DogStatus.ADMITTED.name()) + " times"));
     }
 
 }

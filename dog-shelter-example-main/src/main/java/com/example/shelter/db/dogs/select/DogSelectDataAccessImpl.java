@@ -14,6 +14,27 @@ import static com.example.shelter.db.ShelterDataAccess.DB_CONNECTION;
 public class DogSelectDataAccessImpl implements DogSelectDataAccess
 {
     @Override
+    public Dog getDogByStatus(String dogStatus) {
+        String currentSelect = "SELECT * FROM DOGS WHERE STATUS =" + dogStatus;
+
+        try (
+                Connection connection = DriverManager.getConnection(DB_CONNECTION);
+                Statement statement = connection.createStatement();
+        ) {
+            ResultSet resultSet = statement.executeQuery(currentSelect);
+
+            while (resultSet.next()) {
+                Dog dog = new Dog(resultSet.getInt(1), resultSet.getString(2));
+                return dog;
+            }
+        } catch (SQLException e) {
+
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
     public Dog getDogById(final int dogId)
     {
         String currentSelect = "SELECT * FROM DOGS WHERE ID =" + dogId;
@@ -34,4 +55,26 @@ public class DogSelectDataAccessImpl implements DogSelectDataAccess
         }
         return null;
     }
+
+    @Override
+    public Dog getCountByStatus(String dogStatus)
+    {
+        String currentSelect = "SELECT COUNT(1) FROM DOGS WHERE STATUS =" + dogStatus;
+        try (
+                Connection connection = DriverManager.getConnection(DB_CONNECTION);
+                Statement statement = connection.createStatement();
+        ) {
+            ResultSet resultSet = statement.executeQuery(currentSelect);
+
+            while (resultSet.next()) {
+                Dog dog = new Dog(resultSet.getInt(1), resultSet.getString(2));
+                return dog;
+            }
+        } catch (SQLException e) {
+
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }

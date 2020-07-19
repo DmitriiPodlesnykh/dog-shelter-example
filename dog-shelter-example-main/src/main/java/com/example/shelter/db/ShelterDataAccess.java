@@ -47,6 +47,7 @@ public class ShelterDataAccess implements ShelterDataAccessInterface{
         return count;
     }
 
+
     public String getDogNameById(int id) {
         String currentSelect = "SELECT NAME FROM DOGS WHERE ID =" + id;
         String resultName = "";
