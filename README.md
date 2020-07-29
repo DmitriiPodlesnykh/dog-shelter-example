@@ -22,6 +22,16 @@
 
 # История занятий
 
+## 28.07.2020
+1. Инкапсуляция
+1. Пару слов о сериализации
+
+### Что почитать:
+1. [Небольшое видео](https://www.youtube.com/watch?v=EvGi6XDgV7w&t=339s)
+1. [getters/setters](https://www.w3schools.com/java/java_encapsulation.asp)
+1. [Более общая статья с примерами](https://vertex-academy.com/tutorials/ru/inkapsulyaciya-java/)
+1. [Факультативно сериализация](https://javarush.ru/groups/posts/2022-serializacija-i-deserializacija-v-java)
+
 ## 14.07.2020-16.07.2020
 Сделали приложение, которое можно запустить в браузере http://localhost:7000/
 
