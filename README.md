@@ -23,11 +23,20 @@
 # История занятий
 
 ## 28.07.2020
+1. Наследование
+
+### Что почитать:
+1. [Небольшое видео о наследовании](https://www.youtube.com/watch?v=eI0XzQw3V0Q)
+1. [Общая статья](https://www.geeksforgeeks.org/inheritance-in-java/)
+1. [Разные способы наследования с примерами](https://www.javatpoint.com/inheritance-in-java)
+1. [Правила наследования](https://vertex-academy.com/tutorials/ru/pravila-nasledovaniya-v-java)
+
+## 28.07.2020
 1. Инкапсуляция
 1. Пару слов о сериализации
 
 ### Что почитать:
-1. [Небольшое видео](https://www.youtube.com/watch?v=EvGi6XDgV7w&t=339s)
+1. [Небольшое видео об инкапсуляции](https://www.youtube.com/watch?v=EvGi6XDgV7w&t=339s)
 1. [getters/setters](https://www.w3schools.com/java/java_encapsulation.asp)
 1. [Более общая статья с примерами](https://vertex-academy.com/tutorials/ru/inkapsulyaciya-java/)
 1. [Факультативно сериализация](https://javarush.ru/groups/posts/2022-serializacija-i-deserializacija-v-java)

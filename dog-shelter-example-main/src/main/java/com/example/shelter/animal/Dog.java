@@ -1,6 +1,5 @@
 package com.example.shelter.animal;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +8,7 @@ import java.util.Set;
 /**
  * Important class
  */
-public class Dog implements Serializable
+public class Dog extends Resident implements Animal, Pet
 {
 
     public static String AAAA = "dsasadsad";
@@ -58,5 +57,11 @@ public class Dog implements Serializable
                 ", visitTime=" + visitTime +
                 ", dogStatus=" + dogStatus +
                 '}';
+    }
+
+    @Override
+    public void eat()
+    {
+
     }
 }
