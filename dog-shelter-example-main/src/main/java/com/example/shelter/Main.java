@@ -9,6 +9,7 @@ import java.util.Set;
 
 import com.example.shelter.animal.Dog;
 import com.example.shelter.animal.DogStatus;
+import com.example.shelter.animal.Resident;
 import com.example.shelter.db.DogInsertDataAccess;
 import com.example.shelter.db.DogInsertDataAccessInterface;
 import com.example.shelter.db.ShelterDataAccess;
@@ -76,12 +77,13 @@ public class Main {
     private static void tryInterfaces(Javalin app)
     {
         Dog dog = new Dog();
+
+        dog.sayHello();
+
+        Resident resident = dog;
+        System.out.println(resident.name);
+
         dog.addDescription("descr1");
-
-//        int size2 = dog.getDescription().size();
-//        System.out.println("our size = " + size2);
-
-        //DogDescriptionChanger.addDescription(dog, "fds");
 
         dog.getDescription();
 
