@@ -38,7 +38,7 @@
 1. [Разные способы наследования с примерами](https://www.javatpoint.com/inheritance-in-java)
 1. [Правила наследования](https://vertex-academy.com/tutorials/ru/pravila-nasledovaniya-v-java)
 
-## 28.07.2020
+## 25.07.2020
 1. Инкапсуляция
 1. Пару слов о сериализации
 
