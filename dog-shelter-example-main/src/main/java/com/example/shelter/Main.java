@@ -4,6 +4,7 @@ import io.javalin.Javalin;
 import io.javalin.http.Context;
 import io.javalin.http.Handler;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Set;
 
@@ -22,6 +23,10 @@ import com.example.shelter.handler.HandlerCountDog;
 import com.example.shelter.handler.HandlerDogInfoById;
 import com.example.shelter.handler.HandlerDogsCountOfEveryStatus;
 import com.example.shelter.handler.HandlerDogsListByStatus;
+import com.example.shelter.staff.Doc;
+import com.example.shelter.staff.Person;
+import com.example.shelter.staff.Sponsor;
+import com.example.shelter.staff.Staff;
 
 public class Main {
 
@@ -33,7 +38,8 @@ public class Main {
     private static DogSelectDataAccessImpl dogSelectData = new DogSelectDataAccessImpl();
 
     public static void main(String... args) {
-        tryInterfaces(null);
+        helpEveryOne();
+        //tryInterfaces(null);
         Javalin app = Javalin.create().start(7000);
         app.get("/", ctx -> ctx.result("Hello World 2 "));
         app.get("/example", new Handler() {
@@ -72,6 +78,52 @@ public class Main {
         app.get("/count_by_statuses/statistics/", handlerDogsCountByStatus);
 
 
+    }
+
+    private static void helpEveryOne()
+    {
+        //1
+        ArrayList<Person> staffList = new ArrayList<>();
+
+        Person staff1 = new Staff("volunteer");
+        Person staff2 = new Staff("volunteer");
+        Person staff3 = new Staff("volunteer");
+        Person staff4 = new Sponsor();
+        Person staff5 = new Sponsor();
+
+        staffList.add(staff1);
+        staffList.add(staff2);
+        staffList.add(staff3);
+        staffList.add(staff4);
+        staffList.add(staff5);
+        staffList.add(new Staff("director"));
+        staffList.add(new Doc());
+
+//        //2
+//        for (Staff staff : staffList)
+//        {
+//            if (staff.category.equals("volunteer"))
+//            {
+//                staff.action = "помочь";
+//            } else if(staff.category.equals("doc"))
+//            {
+//                staff.action = "лечить";
+//            } else if (staff.category.equals("director"))
+//            {
+//                staff.action = "manage";
+//            } else if (staff.category.equals("sponsor"))
+//            {
+//                staff.action = "дать денег";
+//            }
+//        }
+
+
+        //3
+        for (Person staff : staffList)
+        {
+            System.out.println(staff.help());
+            System.out.println(staff.getSalary());
+        }
     }
 
     private static void tryInterfaces(Javalin app)
