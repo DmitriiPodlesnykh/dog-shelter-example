@@ -22,6 +22,36 @@
 
 # История занятий
 
+## 04.08.2020-06.08.2020
+1. Полиморфизм
+
+### Что почитать:
+1. [Небольшое видео о полиморфизме](https://www.youtube.com/watch?v=Ay_GwOQWPs8&t=413s)
+1. [Пример использования полиморфизма](https://www.w3schools.com/java/java_polymorphism.asp)
+
+### Рекомендуется выполнить:
+1. Обновить свою ветку запустить
+1. Посмотреть на com.example.shelter.example.PolymorphismExample.
+
+## 28.07.2020
+1. Наследование
+
+### Что почитать:
+1. [Небольшое видео о наследовании](https://www.youtube.com/watch?v=eI0XzQw3V0Q)
+1. [Общая статья](https://www.geeksforgeeks.org/inheritance-in-java/)
+1. [Разные способы наследования с примерами](https://www.javatpoint.com/inheritance-in-java)
+1. [Правила наследования](https://vertex-academy.com/tutorials/ru/pravila-nasledovaniya-v-java)
+
+## 25.07.2020
+1. Инкапсуляция
+1. Пару слов о сериализации
+
+### Что почитать:
+1. [Небольшое видео об инкапсуляции](https://www.youtube.com/watch?v=EvGi6XDgV7w&t=339s)
+1. [getters/setters](https://www.w3schools.com/java/java_encapsulation.asp)
+1. [Более общая статья с примерами](https://vertex-academy.com/tutorials/ru/inkapsulyaciya-java/)
+1. [Факультативно сериализация](https://javarush.ru/groups/posts/2022-serializacija-i-deserializacija-v-java)
+
 ## 14.07.2020-16.07.2020
 Сделали приложение, которое можно запустить в браузере http://localhost:7000/
 
