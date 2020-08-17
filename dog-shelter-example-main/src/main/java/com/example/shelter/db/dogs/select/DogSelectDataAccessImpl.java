@@ -1,8 +1,13 @@
 package com.example.shelter.db.dogs.select;
 
-import java.sql.*;
-import java.time.LocalDateTime;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import com.example.shelter.animal.Dog;
@@ -82,4 +87,27 @@ public class DogSelectDataAccessImpl implements DogSelectDataAccess
         return countByStatus;
     }
 
+    @Override
+    public ArrayList<Dog> getDogByIds(final Collection<Integer> dogIds)
+    {
+
+        while(dogIds.iterator().hasNext())
+        {
+            ////////
+            dogIds.iterator().next();
+        }
+
+        ArrayList<Dog> dogs = new ArrayList<>();
+        for (Integer id : dogIds)
+        {
+            Dog dog = getDogById(id);
+            dogs.add(dog);
+        }
+
+        if (dogs.isEmpty())
+        {
+            System.out.println("пустота");
+        }
+        return dogs;
+    }
 }
