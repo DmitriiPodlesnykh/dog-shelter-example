@@ -22,6 +22,14 @@
 
 # История занятий
 
+## 13.08.2020
+1. Порядок действий при создании объекта
+1. static keyword
+
+### Что почитать:
+1. [Порядок действий при создании объекта](https://javarush.ru/groups/posts/2137-porjadok-deystviy-pri-sozdanii-obhhekta)
+1. [static keyword](https://javarush.ru/groups/posts/modifikator-static-java)
+
 ## 04.08.2020-06.08.2020
 1. Полиморфизм
 

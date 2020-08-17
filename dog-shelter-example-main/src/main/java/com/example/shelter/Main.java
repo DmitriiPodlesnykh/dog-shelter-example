@@ -18,9 +18,9 @@ import com.example.shelter.db.ShelterDataAccessInterface;
 import com.example.shelter.db.dogs.select.DogSelectDataAccessImpl;
 import com.example.shelter.db.dogs.update.DogUpdateDataAccess;
 import com.example.shelter.db.dogs.update.DogUpdateDataAccessImplByNL;
-import com.example.shelter.example.PolymorphismExample;
 import com.example.shelter.handler.HandlerAllDogs;
 import com.example.shelter.handler.HandlerCountDog;
+import com.example.shelter.handler.HandlerDocInfo;
 import com.example.shelter.handler.HandlerDogInfoById;
 import com.example.shelter.handler.HandlerDogsCountOfEveryStatus;
 import com.example.shelter.handler.HandlerDogsListByStatus;
@@ -39,9 +39,6 @@ public class Main {
     private static DogSelectDataAccessImpl dogSelectData = new DogSelectDataAccessImpl();
 
     public static void main(String... args) {
-        PolymorphismExample.startExample();
-        //helpEveryOne();
-        //tryInterfaces(null);
         Javalin app = Javalin.create().start(7000);
         app.get("/", ctx -> ctx.result("Hello World 2 "));
         app.get("/example", new Handler() {
@@ -79,7 +76,8 @@ public class Main {
         Handler handlerDogsCountByStatus = new HandlerDogsCountOfEveryStatus();
         app.get("/count_by_statuses/statistics/", handlerDogsCountByStatus);
 
-
+        Handler docInfoHandler = new HandlerDocInfo();
+        app.get("/doc", docInfoHandler);
     }
 
     private static void helpEveryOne()
