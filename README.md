@@ -22,6 +22,15 @@
 
 # История занятий
 
+## 18.08.2020
+1. Inner classes
+1. Anonymous classes
+
+### Что почитать:
+1. [Inner classes](http://www.quizful.net/post/inner-classes-java)
+1. [Nested classes](https://www.geeksforgeeks.org/nested-classes-java/)
+1. [Anonymous classes](https://www.baeldung.com/java-anonymous-classes)
+
 ## 13.08.2020
 1. Порядок действий при создании объекта
 1. static keyword
