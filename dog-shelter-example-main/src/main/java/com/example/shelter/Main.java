@@ -18,6 +18,7 @@ import com.example.shelter.db.ShelterDataAccessInterface;
 import com.example.shelter.db.dogs.select.DogSelectDataAccessImpl;
 import com.example.shelter.db.dogs.update.DogUpdateDataAccess;
 import com.example.shelter.db.dogs.update.DogUpdateDataAccessImplByNL;
+import com.example.shelter.handler.DogComparatorExampleHandler;
 import com.example.shelter.handler.FishHandler;
 import com.example.shelter.handler.HandlerAllDogs;
 import com.example.shelter.handler.HandlerCountDog;
@@ -82,6 +83,9 @@ public class Main {
 
         Handler fishHandler = new FishHandler();
         app.get("/fish", fishHandler);
+
+        Handler comparatorHandler = new DogComparatorExampleHandler();
+        app.get("/dog/sort", comparatorHandler);
     }
 
     private static void helpEveryOne()
