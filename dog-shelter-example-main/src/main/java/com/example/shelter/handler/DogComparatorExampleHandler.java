@@ -1,12 +1,10 @@
 package com.example.shelter.handler;
 
+import com.example.shelter.animal.Dog;
 import io.javalin.http.Context;
 import io.javalin.http.Handler;
 
 import java.util.*;
-import java.util.ArrayList;
-
-import com.example.shelter.animal.Dog;
 
 public class DogComparatorExampleHandler implements Handler
 {
