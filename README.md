@@ -22,6 +22,17 @@
 
 # История занятий
 
+## 01.09.2020
+1. StringBuilder
+1. HTML table
+
+### Что почитать:
+1. [Знакомство со String, StringBuffer и StringBuilder в Java](https://javarush.ru/groups/posts/2351-znakomstvo-so-string-stringbuffer-i-stringbuilder-v-java)
+1. [HTML tables](https://www.w3schools.com/html/html_tables.asp)
+
+### Рекомендуется выполнить:
+Предыдущую домашку
+
 ## 25.08.2020
 1. Comparator, Comparable interfaces
 1. TreeSet
