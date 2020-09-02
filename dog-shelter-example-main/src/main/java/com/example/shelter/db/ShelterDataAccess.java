@@ -1,16 +1,13 @@
 package com.example.shelter.db;
 
+import com.example.shelter.animal.Dog;
+import com.example.shelter.animal.DogStatus;
+
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Set;
-
-import com.example.shelter.animal.Dog;
 
 /**
  * Взаимодействие с БД
@@ -126,7 +123,14 @@ public class ShelterDataAccess implements ShelterDataAccessInterface{
             ResultSet resultSet = statement.executeQuery(currentSelect);
 
             while (resultSet.next()) {
-                allDogsList.add(new Dog(resultSet.getInt(1), resultSet.getString(2)));
+                Dog dog = new Dog(resultSet.getInt(1), resultSet.getString(2));
+                String status = resultSet.getString(4);
+                if(status != null) {
+                    dog.dogStatus = DogStatus.valueOf(resultSet.getString(4));
+                } else {
+                    dog.dogStatus = null;
+                }
+                allDogsList.add(dog);
             }
         } catch (SQLException e) {
             e.printStackTrace();

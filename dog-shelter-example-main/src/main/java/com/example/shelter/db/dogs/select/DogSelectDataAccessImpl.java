@@ -1,17 +1,12 @@
 package com.example.shelter.db.dogs.select;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import com.example.shelter.animal.Dog;
+import com.example.shelter.animal.DogStatus;
+
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
-import com.example.shelter.animal.Dog;
-import com.example.shelter.animal.DogStatus;
 
 import static com.example.shelter.db.ShelterDataAccess.DB_CONNECTION;
 
@@ -110,4 +105,5 @@ public class DogSelectDataAccessImpl implements DogSelectDataAccess
         }
         return dogs;
     }
+
 }

@@ -22,6 +22,46 @@
 
 # История занятий
 
+## 01.09.2020
+1. StringBuilder
+1. HTML table
+
+### Что почитать:
+1. [Знакомство со String, StringBuffer и StringBuilder в Java](https://javarush.ru/groups/posts/2351-znakomstvo-so-string-stringbuffer-i-stringbuilder-v-java)
+1. [HTML tables](https://www.w3schools.com/html/html_tables.asp)
+
+### Рекомендуется выполнить:
+Предыдущую домашку
+
+## 25.08.2020
+1. Comparator, Comparable interfaces
+1. TreeSet
+
+### Что почитать:
+1. [Comparator, Comparable interfaces from metanit](https://metanit.com/java/tutorial/5.6.php)
+1. [Comparator, Comparable interfaces from JavaRush](https://javarush.ru/groups/posts/1939-comparator-v-java)
+1. [Бинарное дерево. Факультативно](https://www.youtube.com/watch?v=9o_i0zzxk1s)
+
+### Рекомендуется выполнить:
+1. Реализовать поведение: При общании по <code>.../dog/names/sortByNameAsc</code> выводить список всех имен собак из БД,
+отсортированный по алфавиту. 
+1. Реализовать поведение: При общании по <code>.../dog/sortByIdDesc</code> выводить список всех собак из БД,
+      отсортированный по id в обратном порядке
+1. Реализовать поведение: При общании по <code>.../dog/sortByStatus</code> выводить список всех собак из БД,
+      отсортированный по статусу.
+1. Реализовать поведение: При общании по <code>.../dog/sortByNameStatus</code> выводить список всех собак из БД,
+   отсортированный по имени, а если имена совпадают, то по статусу.
+
+
+## 18.08.2020
+1. Inner classes
+1. Anonymous classes
+
+### Что почитать:
+1. [Inner classes](http://www.quizful.net/post/inner-classes-java)
+1. [Nested classes](https://www.geeksforgeeks.org/nested-classes-java/)
+1. [Anonymous classes](https://www.baeldung.com/java-anonymous-classes)
+
 ## 13.08.2020
 1. Порядок действий при создании объекта
 1. static keyword
