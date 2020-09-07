@@ -79,7 +79,7 @@ public class Main {
         Handler comparatorHandler = new DogComparatorExampleHandler();
         app.get("/dog/sort", comparatorHandler);
 
-        Handler sortDogsByIDDesc = new SortDogsByIDDescHandler();
+        Handler sortDogsByIDDesc = new SortDogsByIDDescHandlerVK();
         app.get("/dog/sortByIdDesc", sortDogsByIDDesc);
 
         Handler sortDogsByNameAsc = new SortDogsByNameAscHandler();
