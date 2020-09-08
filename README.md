@@ -22,6 +22,13 @@
 
 # История занятий
 
+## 08.09.2020
+1. Reflection
+
+### Что почитать:
+1. [видео о reflection](https://www.youtube.com/watch?v=XJQuBXWADZg)
+1. [JavaRush рефлексия](https://javarush.ru/groups/posts/513-reflection-api-refleksija-temnaja-storona-java)
+
 ## 01.09.2020
 1. StringBuilder
 1. HTML table

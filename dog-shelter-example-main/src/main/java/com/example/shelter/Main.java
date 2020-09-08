@@ -1,5 +1,13 @@
 package com.example.shelter;
 
+import io.javalin.Javalin;
+import io.javalin.http.Context;
+import io.javalin.http.Handler;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Set;
+
 import com.example.shelter.animal.Dog;
 import com.example.shelter.animal.DogStatus;
 import com.example.shelter.animal.Resident;
@@ -10,18 +18,23 @@ import com.example.shelter.db.ShelterDataAccessInterface;
 import com.example.shelter.db.dogs.select.DogSelectDataAccessImpl;
 import com.example.shelter.db.dogs.update.DogUpdateDataAccess;
 import com.example.shelter.db.dogs.update.DogUpdateDataAccessImplByNL;
-import com.example.shelter.handler.*;
+import com.example.shelter.handler.DogComparatorExampleHandler;
+import com.example.shelter.handler.FishHandler;
+import com.example.shelter.handler.HandlerAllDogs;
+import com.example.shelter.handler.HandlerCountDog;
+import com.example.shelter.handler.HandlerDocInfo;
+import com.example.shelter.handler.HandlerDogInfoById;
+import com.example.shelter.handler.HandlerDogsCountOfEveryStatus;
+import com.example.shelter.handler.HandlerDogsListByStatus;
+import com.example.shelter.handler.ReflectionExampleHandler;
+import com.example.shelter.handler.SortDogsByIDDescHandler;
+import com.example.shelter.handler.SortDogsByNameAscHandler;
+import com.example.shelter.handler.SortDogsByNameStatusHandler;
+import com.example.shelter.handler.SortDogsByStatusHandler;
 import com.example.shelter.staff.Doc;
 import com.example.shelter.staff.Person;
 import com.example.shelter.staff.Sponsor;
 import com.example.shelter.staff.Staff;
-import io.javalin.Javalin;
-import io.javalin.http.Context;
-import io.javalin.http.Handler;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Set;
 
 public class Main {
 
@@ -90,6 +103,9 @@ public class Main {
 
         Handler sortDogsByNameStatus = new SortDogsByNameStatusHandler();
         app.get("/dog/sortByNameStatus", sortDogsByNameStatus);
+
+        Handler reflectionExampleHandler = new ReflectionExampleHandler();
+        app.get("/example/reflection/dog", reflectionExampleHandler);
 
     }
 
