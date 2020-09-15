@@ -22,6 +22,13 @@
 
 # История занятий
 
+## 15.09.2020
+1. Getter/Setter
+
+### Что почитать:
+1. [Краткий пример](https://www.w3schools.com/java/java_encapsulation.asp)
+1. [Basics, Common Mistakes, and Best Practices](https://dzone.com/articles/java-getter-and-setter-basics-common-mistakes-and#:~:text=In%20Java%2C%20getter%20and%20setter,the%20value%20of%20a%20variable.&text=So%2C%20a%20setter%20is%20a,accessor%20and%20mutator%20in%20Java.)
+
 ## 08.09.2020
 1. Reflection
 
