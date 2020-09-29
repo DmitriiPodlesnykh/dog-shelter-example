@@ -22,6 +22,19 @@
 
 # История занятий
 
+#29.09.2020
+1. Константы
+1. Рефакторинг: извлечение метода.
+
+### Что почитать:
+1. [How To Declare a Constant in Java](https://vertex-academy.com/tutorials/en/declare-constant-java/)
+1. [Замена магического числа символьной константой](https://refactoring.guru/ru/replace-magic-number-with-symbolic-constant)
+1. [Длинный метод](https://refactoring.guru/ru/smells/long-method)
+1. [Извлечение метода](https://refactoring.guru/ru/extract-method)
+
+### Рекомендуется выполнить:
+Рефакторинг 2-3 методов проекта.
+
 ## 15.09.2020
 1. Getter/Setter
 

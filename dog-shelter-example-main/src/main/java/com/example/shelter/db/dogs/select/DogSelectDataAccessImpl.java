@@ -1,39 +1,53 @@
 package com.example.shelter.db.dogs.select;
 
-import com.example.shelter.animal.Dog;
-import com.example.shelter.animal.DogStatus;
-
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+
+import com.example.shelter.animal.Dog;
+import com.example.shelter.animal.DogStatus;
 
 import static com.example.shelter.db.ShelterDataAccess.DB_CONNECTION;
 
 public class DogSelectDataAccessImpl implements DogSelectDataAccess
 {
+    private static final String QUERY_SELECT_ALL_BY_STATUS = "SELECT * FROM DOGS WHERE STATUS = upper(?)";
+    private static final String DOG_NAME_COLUMN = "NAME";
+    private static final String DOG_STATUS_COLUMN = "status";
+    private static final int DOG_VISIT_TIME_COLUMN = 3;
+    private static final int DOG_ID_COLUMN = 1;
+
     @Override
-    public List<Dog> getDogByStatus(String dogStatus) {
-        String currentSelect = "SELECT * FROM DOGS WHERE STATUS = upper(?)";
-        List<Dog> result = new ArrayList<>();
-
-        try (
-                Connection connection = DriverManager.getConnection(DB_CONNECTION);
-                PreparedStatement statement = connection.prepareStatement(currentSelect);
-        ) {
+    public List<Dog> getDogByStatus(String dogStatus)
+    {
+        try (Connection connection = DriverManager.getConnection(DB_CONNECTION);
+                PreparedStatement statement = connection.prepareStatement(QUERY_SELECT_ALL_BY_STATUS))
+        {
             statement.setString(1, dogStatus);
-            //System.out.println(statement);
             ResultSet resultSet = statement.executeQuery();
-
-            while (resultSet.next()) {
-                Dog dog = new Dog(resultSet.getInt(1), resultSet.getString("NAME"));
-                dog.dogStatus = DogStatus.valueOf(resultSet.getString("status"));
-                dog.visitTime = resultSet.getTimestamp(3).toLocalDateTime();
-                result.add(dog);
-            }
-        } catch (SQLException e) {
-
+            return convertToDogList(resultSet);
+        }
+        catch (SQLException e)
+        {
             e.printStackTrace();
+            return new ArrayList<>();
+        }
+    }
+
+    private List<Dog> convertToDogList(ResultSet resultSet) throws SQLException
+    {
+        List<Dog> result = new ArrayList<>();
+        while (resultSet.next()) {
+            Dog dog = new Dog(resultSet.getInt(DOG_ID_COLUMN), resultSet.getString(DOG_NAME_COLUMN));
+            dog.dogStatus = DogStatus.valueOf(resultSet.getString(DOG_STATUS_COLUMN));
+            dog.visitTime = resultSet.getTimestamp(DOG_VISIT_TIME_COLUMN).toLocalDateTime();
+            result.add(dog);
         }
         return result;
     }
