@@ -27,6 +27,7 @@ import com.example.shelter.handler.HandlerDogInfoById;
 import com.example.shelter.handler.HandlerDogsCountOfEveryStatus;
 import com.example.shelter.handler.HandlerDogsListByStatus;
 import com.example.shelter.handler.ReflectionExampleHandler;
+import com.example.shelter.handler.RegexpHandler;
 import com.example.shelter.handler.SortDogsByIDDescHandler;
 import com.example.shelter.handler.SortDogsByNameAscHandler;
 import com.example.shelter.handler.SortDogsByNameStatusHandler;
@@ -106,6 +107,9 @@ public class Main {
 
         Handler reflectionExampleHandler = new ReflectionExampleHandler();
         app.get("/example/reflection/dog", reflectionExampleHandler);
+
+        Handler regexpHandler = new RegexpHandler();
+        app.get("/rg", regexpHandler);
 
     }
 
