@@ -22,6 +22,20 @@
 
 # История занятий
 
+##13.10.2020
+1. Регулярные выражения
+
+### Что почитать:
+1. [w3schools examples](https://www.w3schools.com/java/java_regex.asp)
+1. [regular expressions UI](https://regex101.com/)
+1. [Не бойтесь регулярных выражений. Regex за 20 минут!](https://www.youtube.com/watch?v=_pLpx6btq6U&t=1058s)
+1. [Regular expressions in Java - Tutorial](https://www.vogella.com/tutorials/JavaRegularExpressions/article.html)
+
+### Рекомендуется выполнить:
+1. Реализовать функционал: При обращении по GET запросу <code>someurl:port/regexp/dog/name/a</code>
+Возвращать страницу, на которой перечисленны имена всех собак из БД,
+ у которых есть хотя бы одна <code>а</code> в имени + общая длинна имени 5-10 символов + отсутсвуют цифры в имени.
+
 #29.09.2020
 1. Константы
 1. Рефакторинг: извлечение метода.
