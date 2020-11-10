@@ -19,6 +19,7 @@ import com.example.shelter.db.dogs.select.DogSelectDataAccessImpl;
 import com.example.shelter.db.dogs.update.DogUpdateDataAccess;
 import com.example.shelter.db.dogs.update.DogUpdateDataAccessImplByNL;
 import com.example.shelter.handler.DogComparatorExampleHandler;
+import com.example.shelter.handler.ExceptionHandler;
 import com.example.shelter.handler.FishHandler;
 import com.example.shelter.handler.HandlerAllDogs;
 import com.example.shelter.handler.HandlerCountDog;
@@ -110,6 +111,9 @@ public class Main {
 
         Handler regexpHandler = new RegexpHandler();
         app.get("/rg", regexpHandler);
+
+        Handler exceptionHandler = new ExceptionHandler();
+        app.get("/example/exception", exceptionHandler);
 
     }
 

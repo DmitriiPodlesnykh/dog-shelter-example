@@ -1,17 +1,16 @@
 package com.example.shelter.db;
 
-import com.example.shelter.animal.Dog;
-
-import java.sql.*;
+import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import com.example.shelter.animal.Dog;
 
 public interface ShelterDataAccessInterface {
     int getCountDogs();
 
-    String getDogNameById(int id);
+    String getDogNameById(int id) throws SQLException;
 
     /**
      * @return имена всех собак

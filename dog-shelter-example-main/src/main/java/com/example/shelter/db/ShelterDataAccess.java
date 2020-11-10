@@ -1,13 +1,17 @@
 package com.example.shelter.db;
 
-import com.example.shelter.animal.Dog;
-import com.example.shelter.animal.DogStatus;
-
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import com.example.shelter.animal.Dog;
+import com.example.shelter.animal.DogStatus;
 
 /**
  * Взаимодействие с БД
@@ -48,7 +52,6 @@ public class ShelterDataAccess implements ShelterDataAccessInterface{
     public String getDogNameById(int id) {
         String currentSelect = "SELECT NAME FROM DOGS WHERE ID =" + id;
         String resultName = "";
-
         // try with resources example
         try (
                 Connection connection = DriverManager.getConnection(DB_CONNECTION);
@@ -59,8 +62,9 @@ public class ShelterDataAccess implements ShelterDataAccessInterface{
             while (resultSet.next()) {
                 resultName = resultSet.getString(1);
             }
-        } catch (SQLException e) {
-
+        }
+        catch (SQLException e) {
+            System.out.println(e.getMessage());
             e.printStackTrace();
         }
         return resultName;
