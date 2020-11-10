@@ -24,8 +24,6 @@ public class Dog extends Resident implements Animal, Pet, Comparable<Dog>
     public Dog(final int id, final String name) {
         this.id = id;
         this.name = name;
-        //this.dogStatus=dogStatus;
-        // this.visitTime=visitTime;
     }
 
     public Dog() {
@@ -55,8 +53,8 @@ public class Dog extends Resident implements Animal, Pet, Comparable<Dog>
     public String toString() {
         return "Dog{" +
                 "name='" + name + '\'' +
-//                ", visitTime=" + visitTime +
-//                ", dogStatus=" + dogStatus +
+                ", visitTime=" + visitTime +
+                ", dogStatus=" + dogStatus +
                 '}';
     }
 
