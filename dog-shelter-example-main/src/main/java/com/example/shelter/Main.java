@@ -33,6 +33,7 @@ import com.example.shelter.handler.SortDogsByIDDescHandler;
 import com.example.shelter.handler.SortDogsByNameAscHandler;
 import com.example.shelter.handler.SortDogsByNameStatusHandler;
 import com.example.shelter.handler.SortDogsByStatusHandler;
+import com.example.shelter.handler.test.FullAuditHandler;
 import com.example.shelter.staff.Doc;
 import com.example.shelter.staff.Person;
 import com.example.shelter.staff.Sponsor;
@@ -114,6 +115,9 @@ public class Main {
 
         Handler exceptionHandler = new ExceptionHandler();
         app.get("/example/exception", exceptionHandler);
+
+        FullAuditHandler fullAuditHandler = new FullAuditHandler();
+        app.get("/audit", fullAuditHandler);
 
     }
 

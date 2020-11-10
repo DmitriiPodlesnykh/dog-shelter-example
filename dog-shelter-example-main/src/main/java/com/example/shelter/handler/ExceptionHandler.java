@@ -3,8 +3,6 @@ package com.example.shelter.handler;
 import io.javalin.http.Context;
 import io.javalin.http.Handler;
 
-import org.jetbrains.annotations.NotNull;
-
 import com.example.shelter.db.ShelterDataAccess;
 
 public class ExceptionHandler implements Handler
@@ -12,7 +10,7 @@ public class ExceptionHandler implements Handler
     private ShelterDataAccess shelterDataAccess = new ShelterDataAccess();
 
     @Override
-    public void handle(@NotNull final Context context) throws Exception
+    public void handle(final Context context) throws Exception
     {
         //shelterDataAccess.getDogNameById(1);
 
