@@ -1,7 +1,7 @@
 # dog-shelter-example
 ![Java CI with Gradle](https://github.com/DmitriiPodlesnykh/dog-shelter-example/workflows/Java%20CI%20with%20Gradle/badge.svg?branch=master)
 
-<h2> Запуск проекта:</h2>
+<h1> Запуск проекта:</h1>
 1. Открыть панель Gradle в Idea: View -> Tool Windows -> Gradle
 1. В открывшимся окне развернуть dog-shelter-example -> tasks -> application -> run
 1. запустить run
