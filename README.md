@@ -1,12 +1,12 @@
 # dog-shelter-example
 ![Java CI with Gradle](https://github.com/DmitriiPodlesnykh/dog-shelter-example/workflows/Java%20CI%20with%20Gradle/badge.svg?branch=master)
 
-## Запуск проекта:
+<h1> Запуск проекта: </h1>
 1. Открыть панель Gradle в Idea: View -> Tool Windows -> Gradle
 1. В открывшимся окне развернуть dog-shelter-example -> tasks -> application -> run
 1. запустить run
 
-##Подключение к БД из консоли:
+<h2>Подключение к БД из консоли:</h2>
 1. [Информация для intellij idea community edition](https://www.jetbrains.com/help/idea/connecting-to-a-database.html#connect-to-postgresql-database)
 1. [Информация для intellij idea community edition](https://plugins.jetbrains.com/plugin/1800-database-navigator)
 1. Данные(Могут меняться, пишите если не получается подключиться):
