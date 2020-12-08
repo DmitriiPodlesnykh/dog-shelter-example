@@ -1,12 +1,18 @@
 package com.example.shelter.db;
 
-import java.sql.*;
-import java.time.LocalDateTime;
-import java.util.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Timestamp;
+import java.util.List;
 
 import com.example.shelter.animal.Dog;
-import com.example.shelter.animal.DogStatus;
 
+/**
+ * DogInsertDataAccess
+ */
 public class DogInsertDataAccess implements DogInsertDataAccessInterface
 {
     private static final String INSERT_DOG_QUERY = "insert into dogs (name,status,visit_time) values (?,?,?);";
