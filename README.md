@@ -6,7 +6,7 @@
 1. В открывшимся окне развернуть dog-shelter-example -> tasks -> application -> run
 1. запустить run
 
-##Подключение к БД из консоли:
+<h2>Подключение к БД из консоли:</h2>
 1. [Информация для intellij idea community edition](https://www.jetbrains.com/help/idea/connecting-to-a-database.html#connect-to-postgresql-database)
 1. [Информация для intellij idea community edition](https://plugins.jetbrains.com/plugin/1800-database-navigator)
 1. Данные(Могут меняться, пишите если не получается подключиться):
